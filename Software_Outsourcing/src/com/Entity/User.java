@@ -7,6 +7,13 @@ public class User {
 	private String phone;
     private String check;
     
+    public User(String name,String pwd){
+    	username = name;
+    	password = pwd;
+    }
+    public User(){
+    	
+    }
 	public String getCheck() {
 		return check;
 	}

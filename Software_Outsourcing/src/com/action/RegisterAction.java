@@ -1,51 +1,40 @@
 package com.action;
 
-
-
 import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.net.URLEncoder;
-
-import javax.servlet.http.Cookie;
+import java.sql.SQLException;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.apache.struts2.ServletActionContext;
 
 import com.Entity.User;
+import com.dao.LoginDAO;
 import com.opensymphony.xwork2.ActionSupport;
-public class RegisterAction extends ActionSupport{
-    private User user;
-    @Override
-    public String execute() throws UnsupportedEncodingException{
-    	HttpServletRequest req = ServletActionContext.getRequest();
-    	Cookie cs[] = req.getCookies();
-    	if(user.getUsername().length()>0){
-    		String username = new String(user.getUsername().getBytes("ISO-8859-1"),"UTF-8");
-    	System.out.println("1"+username);
-    	if(cs!=null){
-    	for(Cookie c:cs){
-    		String name = URLDecoder.decode(c.getName(),"UTF-8");
-     		String value = URLDecoder.decode(c.getValue(),"UTF-8");
-    		if(name.equals(username)&&value.equals(user.getPassword())){
-    			req.setAttribute("register_error","ÓÃ»§ÒÑ¾­´æÔÚ²»ĞèÒª×¢²á,ÇëÖ±½ÓµÇÂ¼!");
-    			return "error";
-    		}
-    	}
-    	}
-    	addCookie(username,user.getPassword());
-    	return "success";
-    	}
-    	req.setAttribute("register_error","Ã»ÊäÈëÓÃ»§ÄØ!");
-    	return "error";
-    }
-    private void addCookie(String name,String user2) throws UnsupportedEncodingException{
-        name = URLEncoder.encode(name,"UTF-8");
-		user2 = URLEncoder.encode(user2,"UTF-8");
-        Cookie cookie = new Cookie(name, user2);
-        cookie.setMaxAge(60*60*24*365);
-        ServletActionContext.getResponse().addCookie(cookie);
-    }
+
+public class RegisterAction extends ActionSupport {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private User user;
+	private LoginDAO loginDao = LoginDAO.getLoginDAO();
+
+	@Override
+	public String execute() throws UnsupportedEncodingException, SQLException {
+		HttpServletRequest req = ServletActionContext.getRequest();
+		if (user.getUsername().length() > 0) {
+			String username = new String(user.getUsername());
+			System.out.println("1" + username);
+			User registUser = loginDao.getUserByName(username);
+			if (registUser != null) {
+				req.setAttribute("register_error", "ç”¨æˆ·å·²ç»å­˜åœ¨ä¸éœ€è¦æ³¨å†Œ,è¯·ç›´æ¥ç™»å½•!");
+				return "error";
+			}
+			loginDao.addUser(user);
+			return "success";
+		}
+		req.setAttribute("register_error", "æ²¡è¾“å…¥ç”¨æˆ·å‘¢!");
+		return "error";
+	}
+
 	public User getUser() {
 		return user;
 	}

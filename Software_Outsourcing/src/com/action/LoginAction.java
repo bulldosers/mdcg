@@ -1,63 +1,62 @@
 package com.action;
 
 import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.util.List;
+import java.sql.SQLException;
 import java.util.Map;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts2.ServletActionContext;
 
 import com.Entity.User;
+import com.dao.LoginDAO;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+
 /*
- * ÓÃ»§µÇÂ¼action,ÅĞ¶ÏÊÇ·ñ·ûºÏµÇÂ¼Ìõ¼ş
+ * ç”¨æˆ·ç™»å½•action,åˆ¤æ–­æ˜¯å¦ç¬¦åˆç™»å½•æ¡ä»¶
  */
-public class LoginAction extends ActionSupport{
-	private static final long serialVersionUID = 8013816027944871760L;  
-    private User user;
-    private String prePage;// µÇÂ¼Ç°Ò³Ãæ  
+public class LoginAction extends ActionSupport {
+	private static final long serialVersionUID = 8013816027944871760L;
+	private User user;
+	private String prePage;// ç™»å½•å‰é¡µé¢
+	private LoginDAO loginDao = LoginDAO.getLoginDAO();
+
 	@Override
-	public String execute() throws UnsupportedEncodingException{
+	public String execute() throws UnsupportedEncodingException, SQLException {
 		HttpServletRequest req = ServletActionContext.getRequest();
 		String check = (String) req.getSession().getAttribute("rand");
-		
-		   ActionContext ctx = ActionContext.getContext();  
-           Map<String, Object> session = ctx.getSession();  
-             
-		
-		if(!user.getCheck().equals(check)){
-			req.setAttribute("login_error", "ÑéÖ¤ÂëÊäÈë²»ÕıÈ·£¬ÇëÖØĞÂÊäÈë");
+
+		ActionContext ctx = ActionContext.getContext();
+		Map<String, Object> session = ctx.getSession();
+
+		if (!user.getCheck().equals(check)) {
+			req.setAttribute("login_error", "éªŒè¯ç è¾“å…¥ä¸æ­£ç¡®ï¼Œè¯·é‡æ–°è¾“å…¥");
 			return "error";
 		}
-		if(user.getUsername().length()>0){
-		    String username = new String(user.getUsername().getBytes("ISO-8859-1"),"UTF-8");
-			System.out.println("2"+username);
-	    	Cookie cs[] = req.getCookies();
-	    	if(cs!=null){
-	    	for(Cookie c:cs){
-			String name = URLDecoder.decode(c.getName(),"UTF-8");
-     		String value = URLDecoder.decode(c.getValue(),"UTF-8");
-    		if(name.equals(username)&&value.equals(user.getPassword())){
-    			    session.put("NowLogining",name);
-    			    prePage = (String) session.get("prePage");
-    			    session.remove("prePage");
-    			    if (null == prePage) {  
-    	                return SUCCESS;
-    	            } else {  
-    	                return "aaa";
-    	            }  
-		    }
-	    	}
+		if (user.getUsername().length() > 0) { 
+			String username = new String(user.getUsername().getBytes(
+					"ISO-8859-1"), "UTF-8");
+			System.out.println("2" + username); 
+			User loginUser = loginDao.getUserByName(username);
+			if (loginUser != null) {
+				if (loginUser.getPassword().equals(user.getPassword())) {
+					session.put("NowLogining", username);
+					prePage = (String) session.get("prePage");
+					session.remove("prePage");
+					if (null == prePage) {
+						return SUCCESS;
+					} else {
+						return "aaa";
+					}
+				}
+
+			}
 		}
-		}
-		req.setAttribute("login_error", "Ã»ÓĞ¸ÃÓÃ»§ÇëÏÈÈ¥×¢²á");
-			return "error";
+		req.setAttribute("login_error", "æ²¡æœ‰è¯¥ç”¨æˆ·è¯·å…ˆå»æ³¨å†Œ");
+		return "error";
 	}
+
 	public User getUser() {
 		return user;
 	}
@@ -65,12 +64,12 @@ public class LoginAction extends ActionSupport{
 	public void setUser(User user) {
 		this.user = user;
 	}
+
 	public String getPrePage() {
 		return prePage;
 	}
+
 	public void setPrePage(String prePage) {
 		this.prePage = prePage;
 	}
-	
-	
 }
