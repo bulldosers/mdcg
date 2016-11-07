@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>电商网站登录界面</title>
+    <title>HIT-Sourcing 登录</title>
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -28,7 +28,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <style>
      .login{
       position:absolute;
-        background:url(image/back.jpg) no-repeat;
+        background:url(image/bg.jpg) no-repeat;
         height:700px;
         width:100%;
      }
@@ -42,7 +42,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
   <div class="login">
       <div class="form">
-     <a href="adminlogin.jsp">管理员登录</a>
     <s:form action="login.action" method="get">
       <table>
       <tr><s:textfield name="user.username" label="用户名"></s:textfield><tr>

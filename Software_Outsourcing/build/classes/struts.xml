@@ -18,18 +18,11 @@
         <result name="success">/index.jsp</result>
         <result name="error">/login_error.jsp</result>
     </action>
-       <action name="adminlogin" class="com.action.AdminLoginAction">
-        <result name="success">/manage.jsp</result>
-        <result name="error">/login_error.jsp</result>
-    </action> 
     <action name="register" class="com.action.RegisterAction">
        <result name="success">/index.jsp</result>
        <result name="error">/register_error.jsp</result>
     </action>
-      <action name="adminregister" class="com.action.AdminRegisterAction">
-       <result name="success">/index.jsp</result>
-       <result name="error">/register_error.jsp</result>
-    </action>
+      
     <action name="delete" class="com.action.DeleteAction">
        <result name="success">/show.jsp</result>
     </action>

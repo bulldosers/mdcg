@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>注册界面</title>
+    <title>用户注册界面</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -23,7 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  <style>
   .register{
       position:absolute;
-        background:url(image/back.jpg) no-repeat;
+        background:url(image/bg.jpg) no-repeat;
         height:700px;
         width:100%;
      }
@@ -44,7 +44,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        <s:password name="user.password" label="密码"/>
        <s:submit value="注册"/>
     </s:form>
-    <a href="adminregister.jsp"/>管理员注册页面</a>
     </div>
     </div>
   </body>
