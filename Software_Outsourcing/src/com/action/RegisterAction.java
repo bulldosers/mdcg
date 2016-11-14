@@ -25,13 +25,13 @@ public class RegisterAction extends ActionSupport {
 			System.out.println("1" + username);
 			User registUser = loginDao.getUserByName(username);
 			if (registUser != null) {
-				req.setAttribute("register_error", "用户已经存在不需要注册,请直接登录!");
+				req.setAttribute("register_error", " ");
 				return "error";
 			}
 			loginDao.addUser(user);
 			return "success";
 		}
-		req.setAttribute("register_error", "没输入用户呢!");
+		req.setAttribute("register_error", " ");
 		return "error";
 	}
 

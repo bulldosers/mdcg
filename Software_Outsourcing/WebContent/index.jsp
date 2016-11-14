@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>Software Outsouring Website</title>
+    <title>SOFTWARE OUTSOURCING WEBSITE</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -20,8 +20,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
 	<style type="text/css">
-	body {
-			background-image: url("image/abg.jpg") ;
+	body {			
+			background-color: #EEEEEE;
 			background-repeat:no-repeat;
 			background-size: cover;
 	}
@@ -31,6 +31,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			font-family:Impact, Charcoal, sans-serif;
 			font-size:12pt;
 			color: white;
+			font-weight:bold;
 	}
 	#text {
 			font-family:Charcoal, sans-serif;
@@ -38,6 +39,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			color: white;
 			text-align:center;
 			margin-bottom:20px;
+			font-weight:bold;
 	}
 	#demo {
 			background: #FFF;

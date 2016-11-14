@@ -31,7 +31,7 @@ public class LoginAction extends ActionSupport {
 		Map<String, Object> session = ctx.getSession();
 
 		if (!user.getCheck().equals(check)) {
-			req.setAttribute("login_error", "验证码输入不正确，请重新输入");
+			req.setAttribute("login_error", " ");
 			return "error";
 		}
 		if (user.getUsername().length() > 0) { 
@@ -53,7 +53,7 @@ public class LoginAction extends ActionSupport {
 
 			}
 		}
-		req.setAttribute("login_error", "没有该用户请先去注册");
+		req.setAttribute("login_error", " ");
 		return "error";
 	}
 

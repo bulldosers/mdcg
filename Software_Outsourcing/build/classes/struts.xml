@@ -11,18 +11,25 @@
         </global-results>  
     <action name="login" class="com.action.LoginAction">
          <result name="aaa" type="redirectAction">${prePage}</result>
-        <result name="success">/add.jsp</result>
+        <result name="success">/user.jsp</result>
         <result name="error">/login_error.jsp</result>
     </action>
       <action name="canlcelogin" class="com.action.CancelLoginAction">
         <result name="success">/index.jsp</result>
         <result name="error">/login_error.jsp</result>
     </action>
+       <action name="adminlogin" class="com.action.AdminLoginAction">
+        <result name="success">/manage.jsp</result>
+        <result name="error">/login_error.jsp</result>
+    </action> 
     <action name="register" class="com.action.RegisterAction">
+       <result name="success">/login.jsp</result>
+       <result name="error">/register_error.jsp</result>
+    </action>
+      <action name="adminregister" class="com.action.AdminRegisterAction">
        <result name="success">/index.jsp</result>
        <result name="error">/register_error.jsp</result>
     </action>
-      
     <action name="delete" class="com.action.DeleteAction">
        <result name="success">/show.jsp</result>
     </action>
