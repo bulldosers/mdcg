@@ -13,13 +13,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 <body>
 	<div id="header">
-    	<a href="#"><img src="" title="Affiliate Promo logo" id=" " alt="" /></a>
+    	<a href="#"><img src="" title="" id=" " alt="" /></a>
         <ul id="navBar">
-            <li><a href="#">&nbsp;&nbsp;项&nbsp;&nbsp;目&nbsp;&nbsp;</a></li>
-            <li><a href="#">&nbsp;&nbsp;任&nbsp;&nbsp;务&nbsp;&nbsp;</a></li>
-            <li><a href="#">团&nbsp;&nbsp;&nbsp;&nbsp;队&nbsp;&nbsp;</a></li>
-            <li><a href="#">评&nbsp;&nbsp;&nbsp;&nbsp;价&nbsp;&nbsp;</a></li>
-            <li class="current"><a href="index.jsp">&nbsp;&nbsp;退&nbsp;&nbsp;出&nbsp;&nbsp;</a></li>   
+            <li><a href="user.jsp">&nbsp;&nbsp;主&nbsp;&nbsp;&nbsp;&nbsp;页&nbsp;&nbsp;</a></li>
+            <li><a href="project.jsp">&nbsp;&nbsp;项&nbsp;&nbsp;&nbsp;&nbsp;目&nbsp;&nbsp;</a></li>
+            <li><a href="#">&nbsp;&nbsp;团&nbsp;&nbsp;&nbsp;&nbsp;队&nbsp;&nbsp;</a></li>
+            <li><a href="personalinformation.jsp">&nbsp;&nbsp;个&nbsp;&nbsp;&nbsp;&nbsp;人&nbsp;&nbsp;</a></li>
+            <li><a href="test.jsp">&nbsp;&nbsp;评&nbsp;&nbsp;&nbsp;&nbsp;价&nbsp;&nbsp;</a></li>
+            <li class="current"><a href="index.jsp">&nbsp;&nbsp;退&nbsp;&nbsp;&nbsp;&nbsp;出&nbsp;&nbsp;</a></li>   
             <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="image/head.jpg" onmouseover="this.src='image/head2.jpg'" onmouseout="this.src='image/head3.jpg'" style="margin-top:2px; width: 48px; height: 48px;"/></li>         
         </ul>
     </div>
@@ -55,21 +56,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <img src="images/image1.jpg" alt="image1" />
                     <h2>Services you could depend on</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
+                    <a href="myproject.jsp" class="more">管理项目</a>&nbsp;&nbsp;&nbsp;
+                    <a href="#" class="more">删除</a>
                     </li>
                     <li class="clearfix">
                     <img src="images/image2.jpg" alt="image1" />
                     <h2>Guranteed added value</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
+                    <a href="myproject.jsp" class="more">管理项目</a>&nbsp;&nbsp;&nbsp;
+                    <a href="#" class="more">删除</a>
                     </li>
                     <li class="clearfix">
                     <img src="images/image3.jpg" alt="image1" />
                     <h2>Support you can trust</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
+                    <a href="myproject.jsp" class="more">管理项目</a>&nbsp;&nbsp;&nbsp;
+                    <a href="#" class="more">删除</a>
                     </li>
                     <li class="clearfix last">
                     <img src="images/image4.jpg" alt="image1" />
                     <h2>Professional team at you help</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
+                    <a href="myproject.jsp" class="more">管理项目</a>&nbsp;&nbsp;&nbsp;
+                    <a href="#" class="more">删除</a>
                     </li>
                     </ul>
 
@@ -105,6 +114,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <ul>
                     <li class="clearfix">
                     <p>Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim niam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <a href="mytask.jsp" class="more">查看任务</a>&nbsp;&nbsp;&nbsp;
+                    <a href="#" class="more">退出任务</a>
                     </li>
                     </ul>
                     

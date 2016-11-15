@@ -315,6 +315,84 @@ cursor: pointer;
 border: none;
 float: right;
 }
+#submitss {
+background: url(images/edit.png) no-repeat top left;
+margin-right:400px;
+width: 90px;
+height: 40px;
+cursor: pointer;
+border: none;
+float: right;
+}
+#submitss1 {
+background: url(images/apply.png) no-repeat top left;
+margin-right:400px;
+width: 90px;
+height: 40px;
+cursor: pointer;
+border: none;
+float: right;
+}
+#submitss2 {
+background: url(images/build.png) no-repeat top left;
+margin-right:400px;
+width: 90px;
+height: 40px;
+cursor: pointer;
+border: none;
+float: right;
+}
+#contents{
+	height: 414px;
+	overflow-y: auto;
+	border: 1px solid #ccc;
+	float:left;
+	width:100%
+	color: white;
+	font-family:Impact, Charcoal, sans-serif;
+	border: 1px solid #D3D3D3;
+}
+table thead tr th {
+	border: 1px solid #ccc;
+	float:left;
+	width: auto;
+	color: white;
+	font-size:15pt;
+	background-color: #444444;
+}
+table tbody {
+	font-family:Impact, Charcoal, sans-serif;
+	border-collapse: collapse;
+	margin-left: 0px;
+	width: 100%;
+	text-align: center;
+}
+#removeAll {
+background: url(images/remove.png) no-repeat top left;
+margin-right:560px;
+width: 90px;
+height: 40px;
+cursor: pointer;
+border: none;
+float: right;
+}
+#ttt{
+height:100px;
+width:400px;
+word-wrap: break-wrap;
+break-word:break-all;
+}
+#aa{
+font-family:Impact, Charcoal, sans-serif;
+font-size:10pt;
+font-weight:bold;	
+}
+#inputForm{
+font-family:Impact, Charcoal, sans-serif;
+font-size:10pt;
+font-weight:bold;
+margin-right:100px;
+}
 #login #username, #login #password {
 background: url(images/input_bg.png) no-repeat top left;
 border: 1px solid #d0d0d0;
