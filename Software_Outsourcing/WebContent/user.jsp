@@ -26,8 +26,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
     <div id="welcomeMessage">
     	<h1>Welcome to USER CENTER</h1>
-    	<p><span>lalalalalalalala</span> is a leading virtual corporate business that will help you monetize your work to the most level you could reach.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adip, <span>Yourbusiness.com</span> will give you a new way to look at your business and lead it to all new horizons.</p>
+    	<p><span>本页面为用户中心</span>  包含您所发布的项目，您已经接受的项目，以及系统随机推荐给您的可接受任务。</p>
+        <p>在这里，您可以管理和移除您的项目和任务。   <span>我们</span>将努力为您服务，提高您的用户体验，持续优化系统性能</p>
     </div>
     <div id="wrapper">
     	<div id="secWrapper">
@@ -37,20 +37,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <h3>Our Services</h3>
                     <ul>
                     <li>
-                    <h4>Service title</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <h4>Service-1</h4>
+                    <p>发布需求，确认具体项目情况</p>
                     </li>
                      <li>
-                    <h4>Service title</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <h4>Service-2</h4>
+                    <p>接受任务，寻找团队开发项目</p>
                     </li>
                      <li>
-                    <h4>Service title</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <h4>Service-3</h4>
+                    <p>确认合作，保障双方权益</p>
                     </li>
                     </ul>
-                    </div>
+                    </div>                   
                     <h3 id="why">我的项目</h3>
+                    <div id="gdt">
                     <ul id="maincon">
                     <li class="clearfix">
                     <img src="images/image1.jpg" alt="image1" />
@@ -81,7 +82,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <a href="#" class="more">删除</a>
                     </li>
                     </ul>
-
+					</div>
                 </div>
                 <div id="secCol">
               		<fieldset id="login">
@@ -109,8 +110,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         <p>Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim niam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                         <a href="#" class="more">Read more</a>
                         </li>
-                    </ul>
+                    </ul>                   
                     <h3 id="test">我的任务</h3>
+                    <div id="gdt">
                     <ul>
                     <li class="clearfix">
                     <p>Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim niam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -118,7 +120,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <a href="#" class="more">退出任务</a>
                     </li>
                     </ul>
-                    
+                    </div>
                 </div>
             </div>
         </div>

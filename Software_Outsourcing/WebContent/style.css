@@ -352,6 +352,9 @@ float: right;
 	font-family:Impact, Charcoal, sans-serif;
 	border: 1px solid #D3D3D3;
 }
+#gdt{
+	overflow-y: scroll;
+}
 table thead tr th {
 	border: 1px solid #ccc;
 	float:left;

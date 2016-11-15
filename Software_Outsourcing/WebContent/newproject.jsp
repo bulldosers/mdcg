@@ -8,7 +8,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>USER CENTER</title>
+	<title>NEW PROJECT</title>
 	<link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 <body>
@@ -18,16 +18,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <li><a href="user.jsp">&nbsp;&nbsp;主&nbsp;&nbsp;&nbsp;&nbsp;页&nbsp;&nbsp;</a></li>
             <li><a href="project.jsp">&nbsp;&nbsp;项&nbsp;&nbsp;&nbsp;&nbsp;目&nbsp;&nbsp;</a></li>
             <li><a href="#">&nbsp;&nbsp;团&nbsp;&nbsp;&nbsp;&nbsp;队&nbsp;&nbsp;</a></li>
-            <li><a href="projalinformation.jsp">&nbsp;&nbsp;个&nbsp;&nbsp;&nbsp;&nbsp;人&nbsp;&nbsp;</a></li>
+            <li><a href="personalinformation.jsp">&nbsp;&nbsp;个&nbsp;&nbsp;&nbsp;&nbsp;人&nbsp;&nbsp;</a></li>
             <li><a href="#">&nbsp;&nbsp;评&nbsp;&nbsp;&nbsp;&nbsp;价&nbsp;&nbsp;</a></li>
             <li class="current"><a href="index.jsp">&nbsp;&nbsp;退&nbsp;&nbsp;&nbsp;&nbsp;出&nbsp;&nbsp;</a></li>   
             <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="image/head.jpg" onmouseover="this.src='image/head2.jpg'" onmouseout="this.src='image/head3.jpg'" style="margin-top:2px; width: 48px; height: 48px;"/></li>         
         </ul>
     </div>
     <div id="welcomeMessage">
-    	<h1>Welcome to USER CENTER</h1>
-    	<p><span>lalalalalalalala</span> is a leading virtual corporate business that will help you monetize your work to the most level you could reach.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adip, <span>Yourbusiness.com</span> will give you a new way to look at your business and lead it to all new horizons.</p>
+    	<h1>Welcome to NEW　PROJECT PAGE</h1>
+    	<p><span>本页面为新项目创建界面</span> </p>
+        <p>在这里，您可以创建您需要的新项目，请详细地完善所需信息。   <span></span></p>
     </div>
     <div id="wrapper">
     	<div id="secWrapper">

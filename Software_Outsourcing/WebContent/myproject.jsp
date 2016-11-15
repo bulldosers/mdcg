@@ -8,7 +8,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>USER CENTER</title>
+	<title>MYPROJECT</title>
 	<link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 <body>
@@ -25,9 +25,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </ul>
     </div>
     <div id="welcomeMessage">
-    	<h1>Welcome to USER CENTER</h1>
-    	<p><span>lalalalalalalala</span> is a leading virtual corporate business that will help you monetize your work to the most level you could reach.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adip, <span>Yourbusiness.com</span> will give you a new way to look at your business and lead it to all new horizons.</p>
+    	<h1>Welcome to PROJECT MANAGE PAGE</h1>
+    	<p><span>本页面为项目管理界面</span> </p>
+        <p>在这里，您可以查看您已发布的任务，调整您的需求。   <span>并</span>查看已参与人员信息</p>
     </div>
     <div id="wrapper">
     	<div id="secWrapper">

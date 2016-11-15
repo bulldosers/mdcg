@@ -8,7 +8,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>USER CENTER</title>
+	<title>PROJECT</title>
 	<link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 <body>
@@ -25,15 +25,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </ul>
     </div>
     <div id="welcomeMessage">
-    	<h1>Welcome to USER CENTER</h1>
-    	<p><span>lalalalalalalala</span> is a leading virtual corporate business that will help you monetize your work to the most level you could reach.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adip, <span>Yourbusiness.com</span> will give you a new way to look at your business and lead it to all new horizons.</p>
+    	<h1>Welcome to PROJECT PAGE</h1>
+    	<p><span>本页面为项目界面</span>  包含所有人发布的项目，创建新的项目，以及查询模块。</p>
+        <p>在这里，您可以浏览所有项目。   <span>选择</span>您感兴趣的项目进行参与，创建您个人的项目。</p>
     </div>
     <div id="wrapper">
     	<div id="secWrapper">
         	<div id="container" class="clearfix">
             	<div id="mainCol" class="clearfix">
                     <h3 id="why">全部项目</h3>
+                    <div id="gdt">
                     <ul id="maincon">
                     <li class="clearfix">
                     <img src="images/image1.jpg" alt="image1" />
@@ -60,7 +61,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <a href="task.jsp" class="more">申请任务</a>
                     </li>
                     </ul>
-
+					</div>
                 </div>
                 <div id="secCol">
               		<fieldset id="login">

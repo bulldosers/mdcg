@@ -25,9 +25,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </ul>
     </div>
     <div id="welcomeMessage">
-    	<h1>Welcome to USER CENTER</h1>
-    	<p><span>lalalalalalalala</span> is a leading virtual corporate business that will help you monetize your work to the most level you could reach.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adip, <span>Yourbusiness.com</span> will give you a new way to look at your business and lead it to all new horizons.</p>
+    	<h1>Welcome to PERSONAL PAGE</h1>
+    	<p><span>本页面为个人信息界面</span>  包含您的各项信息以及情况简介</p>
+        <p>在这里，您可以修改您的个人信息。   <span>我们</span>将努力保证您的信息安全。</p>
     </div>
     <div id="wrapper">
     	<div id="secWrapper">
