@@ -10,7 +10,7 @@ import java.sql.Statement;
 public class JdbcUtils {
 	private static Connection connection;
 	private static Statement statement;
-	private static final String DATABASE_NAME = "mdcg";
+	private static final String DATABASE_NAME = "test";
 	private static final String USERNAME = "root";
 	private static final String PASSWORD = "123456";
 

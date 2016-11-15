@@ -30,13 +30,12 @@ public class LoginAction extends ActionSupport {
 		ActionContext ctx = ActionContext.getContext();
 		Map<String, Object> session = ctx.getSession();
 
-		if (!user.getCheck().equals(check)) {
-			req.setAttribute("login_error", " ");
-			return "error";
-		}
+//		if (!user.getCheck().equals(check)) {
+//			req.setAttribute("login_error", " ");
+//			return "error";
+//		}
 		if (user.getUsername().length() > 0) { 
-			String username = new String(user.getUsername().getBytes(
-					"ISO-8859-1"), "UTF-8");
+			String username = new String(user.getUsername() );
 			System.out.println("2" + username); 
 			User loginUser = loginDao.getUserByName(username);
 			if (loginUser != null) {
@@ -44,7 +43,9 @@ public class LoginAction extends ActionSupport {
 					session.put("NowLogining", username);
 					prePage = (String) session.get("prePage");
 					session.remove("prePage");
-					if (null == prePage) {
+					if (null == prePage) { 
+						//user.Init();
+						ActionContext.getContext().getSession().put("username", user.getUsername() ); 
 						return SUCCESS;
 					} else {
 						return "aaa";

@@ -15,32 +15,36 @@ import com.opensymphony.xwork2.ActionSupport;
   
 public class RandomPictureAction extends ActionSupport {  
   
-    /** 
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -4817448478624193341L;
+	/** 
      *  
      */  
     private ByteArrayInputStream inputStream;  
   
     public String execute() throws Exception {  
-        // ÔÚÄÚ´æÖÐ´´½¨Í¼Ïó  
+        // ï¿½ï¿½ï¿½Ú´ï¿½ï¿½Ð´ï¿½ï¿½ï¿½Í¼ï¿½ï¿½  
         int width = 85, height = 20;  
   
         BufferedImage image = new BufferedImage(width, height,  
                 BufferedImage.TYPE_INT_RGB);  
   
-        // »ñÈ¡Í¼ÐÎÉÏÏÂÎÄ  
+        // ï¿½ï¿½È¡Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  
         Graphics g = image.getGraphics();  
   
-        // Éú³ÉËæ»úÀà  
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  
         Random random = new Random();  
   
-        // Éè¶¨±³¾°É«  
+        // ï¿½è¶¨ï¿½ï¿½ï¿½ï¿½É«  
         g.setColor(getRandColor(200, 250));  
         g.fillRect(0, 0, width, height);  
   
-        // Éè¶¨×ÖÌå  
+        // ï¿½è¶¨ï¿½ï¿½ï¿½ï¿½  
         g.setFont(new Font("Times New Roman", Font.PLAIN, 18));  
   
-        // Ëæ»ú²úÉú155Ìõ¸ÉÈÅÏß£¬Ê¹Í¼ÏóÖÐµÄÈÏÖ¤Âë²»Ò×±»ÆäËü³ÌÐòÌ½²âµ½  
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½155ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß£ï¿½Ê¹Í¼ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½Ö¤ï¿½ë²»ï¿½×±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½âµ½  
         g.setColor(getRandColor(160, 200));  
         for (int i = 0; i < 155; i++) {  
             int x = random.nextInt(width);  
@@ -50,22 +54,22 @@ public class RandomPictureAction extends ActionSupport {
             g.drawLine(x, y, x + xl, y + yl);  
         }  
   
-        // È¡Ëæ»ú²úÉúµÄÈÏÖ¤Âë(6Î»Êý×Ö)  
+        // È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½(6Î»ï¿½ï¿½ï¿½ï¿½)  
         String sRand = "";  
         for (int i = 0; i < 6; i++) {  
             String rand = String.valueOf(random.nextInt(10));  
             sRand += rand;  
-            // ½«ÈÏÖ¤ÂëÏÔÊ¾µ½Í¼ÏóÖÐ  
+            // ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½  
             g.setColor(new Color(20 + random.nextInt(110), 20 + random  
                     .nextInt(110), 20 + random.nextInt(110)));  
-            // µ÷ÓÃº¯Êý³öÀ´µÄÑÕÉ«ÏàÍ¬£¬¿ÉÄÜÊÇÒòÎªÖÖ×ÓÌ«½Ó½ü£¬ËùÒÔÖ»ÄÜÖ±½ÓÉú³É  
+            // ï¿½ï¿½ï¿½Ãºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«ï¿½ï¿½Í¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½Ì«ï¿½Ó½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½Ö±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  
             g.drawString(rand, 13 * i + 6, 16);  
         }  
   
-        // ½«ÈÏÖ¤Âë´æÈëSESSION  
+        // ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½SESSION  
         ActionContext.getContext().getSession().put("rand", sRand);  
   
-        // Í¼ÏóÉúÐ§  
+        // Í¼ï¿½ï¿½ï¿½ï¿½Ð§  
         g.dispose();  
         ByteArrayOutputStream output = new ByteArrayOutputStream();  
         ImageOutputStream imageOut = ImageIO.createImageOutputStream(output);  
@@ -78,7 +82,7 @@ public class RandomPictureAction extends ActionSupport {
     }  
   
     /* 
-     * ¸ø¶¨·¶Î§»ñµÃËæ»úÑÕÉ« 
+     * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É« 
      */  
     private Color getRandColor(int a, int b) {  
         Random random = new Random();  

@@ -1,18 +1,23 @@
 package com.Entity;
 
-public class User {
+import java.sql.SQLException;
+ 
+import com.dao.UserDAO;
+
+public class User { 
 	private String username;
 	private String password;
 	private String address;
-	private String phone;
     private String check;
-    
+    private Info info;
+    public void Init() throws SQLException{
+    	info = UserDAO.getUserDAO().getUserByUsername(username); 
+    }
     public User(String name,String pwd){
     	username = name;
     	password = pwd;
     }
-    public User(){
-    	
+    public User(){ 
     }
 	public String getCheck() {
 		return check;
@@ -40,18 +45,17 @@ public class User {
 
 	public void setAddress(String address) {
 		this.address = address;
-	}
-
-	public String getPhone() {
-		return phone;
-	}
-
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
+	} 
 
 	public String getUsername() {
 		return username;
 	}
+	public Info getInfo() {
+		return info;
+	}
+	public void setInfo(Info info) {
+		this.info = info;
+	} 
 
 }
+
