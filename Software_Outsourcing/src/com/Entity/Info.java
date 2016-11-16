@@ -1,7 +1,5 @@
 package com.Entity;
 
-import java.io.UnsupportedEncodingException;
-
 public class Info
 {
 	private String name;
@@ -11,8 +9,9 @@ public class Info
 	private String phone;
 	private String school;
 	private String introduce;
+	private String username;
 	
-	public Info(String name,String sex,String age,String major,String phone,String school,String introduce){
+	public Info(String name,String sex,String age,String major,String phone,String school,String introduce,String username){
 		this.name = name;
 		this.sex = sex;
 		this.age = age;
@@ -20,6 +19,7 @@ public class Info
 		this.phone = phone;
 		this.school = school;
 		this.introduce = introduce;
+		this.username = username;
 	}
 	public Info(){
 		
@@ -65,5 +65,11 @@ public class Info
 	}
 	public void setIntroduce(String introduce) {
 		this.introduce = introduce;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
 	}
 }

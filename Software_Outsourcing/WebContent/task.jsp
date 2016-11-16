@@ -15,8 +15,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div id="header">
     	<a href="#"><img src="" title="Affiliate Promo logo" id=" " alt="" /></a>
         <ul id="navBar">
-            <li><a href="user.jsp">&nbsp;&nbsp;主&nbsp;&nbsp;&nbsp;&nbsp;页&nbsp;&nbsp;</a></li>
-            <li><a href="project.jsp">&nbsp;&nbsp;项&nbsp;&nbsp;&nbsp;&nbsp;目&nbsp;&nbsp;</a></li>
+            <li><a href="<s:url action='showUser.action'>  
+            		</s:url>"
+            	>&nbsp;&nbsp;主&nbsp;&nbsp;&nbsp;&nbsp;页&nbsp;&nbsp;</a>
+            </li>
+            <li><a href="<s:url action='showAllProjs.action'>  
+            		</s:url>">&nbsp;&nbsp;项&nbsp;&nbsp;&nbsp;&nbsp;目&nbsp;&nbsp;</a>
+            </li> 
+            
             <li><a href="#">&nbsp;&nbsp;团&nbsp;&nbsp;&nbsp;&nbsp;队&nbsp;&nbsp;</a></li>
             
             <li> <a href="<s:url action='personalInfo.action'>  
@@ -42,65 +48,64 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 			<h3 id="Inf"> </h3>
 			<div id="inputForm">
-
-
-				<s:form theme="simple" action="#" id="Information">
+				
+				<s:form theme="simple" action="applyProj.action" id="Information">
 					<s:hidden name="modify" value="true" />
 					<label class="Info" for="name">项目名称</label>
-					<s:textfield name="task.name" readonly="true"/>
+					<s:textfield name="proj.name" readonly="true"/>
 					<s:fielderror>
-						<s:param>task.name</s:param>
+						<s:param>proj.name</s:param>
 					</s:fielderror>
 					<br />
 					<br />
 
 					<label class="Info" for="">招募人数</label>
-					<s:textfield name="task.num" readonly="true"/>
+					<s:textfield name="proj.lim" readonly="true"/>
 					<s:fielderror>
-						<s:param>task.num</s:param>
+						<s:param>proj.lim</s:param>
 					</s:fielderror>
 					<br />
 					<br />
 
 					<label class="Info" for="age">联系方式</label>
-					<s:textfield name="task.age" readonly="true"/>
+					<s:textfield name="proj.phone" readonly="true"/>
 					<s:fielderror>
-						<s:param>task.contact</s:param>
+						<s:param>proj.phone</s:param>
 					</s:fielderror>
 					<br />
 					<br />
 
 					<label class="Info" for="age">专业要求</label>
-					<s:textfield name="task.age" readonly="true"/>
+					<s:textfield name="proj.major" readonly="true"/>
 					<s:fielderror>
-						<s:param>task.age</s:param>
+						<s:param>proj.major</s:param>
 					</s:fielderror>
 					<br />
 					<br />
 
 					
 					<label class="Info" for="school">院校要求</label>
-					<s:textfield name="task.school" readonly="true"/>
+					<s:textfield name="proj.school" readonly="true"/>
 					<s:fielderror>
-						<s:param>task.school</s:param>
+						<s:param>proj.school</s:param>
 					</s:fielderror>
 					<br />
 					<br />
 					
 					
 					<label class="Info" for="school">项目描述</label>
-					<s:textarea name="task.school" id="ttt" Columns="50" TextMode="MultiLine" readonly="true"/>
+					<s:textarea name="proj.context" readonly="true" id="ttt" Columns="50" TextMode="MultiLine"  />
 					<s:fielderror>
-						<s:param>task.des</s:param>
+						<s:param>proj.context</s:param>
 					</s:fielderror>
 					<br />
 					<br />
 					
 					
 					<label class="Info" for="school">人员要求</label>
-					<s:textarea name="task.school" id="ttt" Columns="50" TextMode="MultiLine" readonly="true"/>
+					<s:textarea name="proj.req" readonly="true" id="ttt" Columns="50" TextMode="MultiLine"  />
 					<s:fielderror>
-						<s:param>task.per</s:param>
+						<s:param>proj.req</s:param>
 					</s:fielderror>
 					<br />
 					<br />

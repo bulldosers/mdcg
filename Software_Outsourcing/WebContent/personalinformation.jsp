@@ -15,8 +15,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div id="header">
     	<a href="#"><img src="" title="Affiliate Promo logo" id=" " alt="" /></a>
         <ul id="navBar">
-            <li><a href="user.jsp">&nbsp;&nbsp;主&nbsp;&nbsp;&nbsp;&nbsp;页&nbsp;&nbsp;</a></li>
-            <li><a href="project.jsp">&nbsp;&nbsp;项&nbsp;&nbsp;&nbsp;&nbsp;目&nbsp;&nbsp;</a></li>
+            <li><a href="<s:url action='showUser.action'>  
+            		</s:url>"
+            	>&nbsp;&nbsp;主&nbsp;&nbsp;&nbsp;&nbsp;页&nbsp;&nbsp;</a>
+            </li>
+            <li><a href="<s:url action='showAllProjs.action'>  
+            		</s:url>">&nbsp;&nbsp;项&nbsp;&nbsp;&nbsp;&nbsp;目&nbsp;&nbsp;</a>
+            </li> 
+            
             <li><a href="#">&nbsp;&nbsp;团&nbsp;&nbsp;&nbsp;&nbsp;队&nbsp;&nbsp;</a></li>
             
             <li> <a href="<s:url action='personalInfo.action'>  
@@ -44,7 +50,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div id="inputForm">
 
 
-				<s:form theme="simple" id="Information">
+				<s:form theme="simple" action="updateInfo.action" id="Information">
 					<s:hidden name="modify" value="true" />
 					<label class="Info" for="name">姓名</label> 
 					

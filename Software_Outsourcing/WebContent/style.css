@@ -133,6 +133,51 @@ margin: 0px auto;
 padding: 0px;
 background: url(images/content_bg.png) repeat-y top left;
 }
+#wrappers {
+width: 994px;
+margin: 0px auto;
+padding: 0px;
+background: url(images/content_bg.png) repeat-y top left;
+}
+#secWrappers{
+width: 994px;
+margin: 0px auto;
+padding: 20px 0px 0px 0px;
+
+}
+#containers {
+width: 964px;
+margin: 0px auto;
+padding: 0px 15px 30px 15px;
+background: url(images/content_bottom.png) no-repeat bottom left;
+}
+#mainCols {
+width: 644px;
+float: left;
+margin: 0px;
+padding: 0px;
+text-align: left;
+}
+#mainColscon {
+width: 644px;
+float: left;
+margin-left: 20%;
+margin-right: 20%;
+padding: 0px;
+text-align: left;
+font-family: Cambria, Georgia, "Times New Roman", Times, serif;
+font-weight: bold;
+font-size:10pt;
+}
+#contract {
+width: 644px;
+float: left;
+padding: 0px;
+text-align: center;
+font-family: Cambria, Georgia, "Times New Roman", Times, serif;
+font-weight: bold;
+font-size:20pt;
+}
 #secWrapper{
 width: 994px;
 margin: 0px auto;
@@ -522,4 +567,55 @@ text-decoration: underline;
 #footer ul li a:hover {
 color: #fff;
 text-decoration: none;
+}
+
+
+
+
+
+
+td.sm a,td.zzm a
+{
+	font-weight: bolder;
+	color: #804040;
+}
+table {
+	font-family:Impact, Charcoal, sans-serif;
+	border-collapse: collapse;
+	margin: 0 auto;
+	width: 100%;
+	text-align: center;
+}
+
+table tbody {
+	font-family:Impact, Charcoal, sans-serif;
+	border-collapse: collapse;
+	margin-left: 0px;
+	width: 100%;
+	text-align: center;
+}
+
+table tr:nth-child(odd) {
+	background-color: #A9A9A9;
+}
+
+table tr:nth-child(even) {
+	background-color: #A9A9A9;
+}
+
+table thead tr th {
+	border: 1px solid #ccc;
+	float:left
+	width:auto;
+	color: white;
+	background-color: #228B22;
+}
+
+table tbody tr td {
+	border: 1px solid #D3D3D3;
+}
+
+table td.cz a {
+	border: 1px solid #ff0000;
+	box-shadow: 2px 2px 2px #ff0000;
 }

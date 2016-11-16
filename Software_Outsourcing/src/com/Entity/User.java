@@ -2,6 +2,8 @@ package com.Entity;
 
 import java.sql.SQLException;
  
+import java.util.ArrayList;
+
 import com.dao.UserDAO;
 
 public class User { 
@@ -10,8 +12,15 @@ public class User {
 	private String address;
     private String check;
     private Info info;
+    private ArrayList<String> pros;
+    
     public void Init() throws SQLException{
     	info = UserDAO.getUserDAO().getUserByUsername(username); 
+    	if(info == null) 
+    	{
+    		info = new Info("","","","","","","","");
+    		UserDAO.getUserDAO().addInfo(info,username);
+    	}
     }
     public User(String name,String pwd){
     	username = name;
@@ -55,6 +64,12 @@ public class User {
 	}
 	public void setInfo(Info info) {
 		this.info = info;
+	}
+	public ArrayList<String> getPros() {
+		return pros;
+	}
+	public void setPros(ArrayList<String> pros) {
+		this.pros = pros;
 	} 
 
 }

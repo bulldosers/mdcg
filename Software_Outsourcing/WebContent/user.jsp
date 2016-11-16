@@ -15,8 +15,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div id="header">
     	<a href="#"><img src="" title="" id=" " alt="" /></a>  
         <ul id="navBar">
-            <li><a href="user.jsp">&nbsp;&nbsp;主&nbsp;&nbsp;&nbsp;&nbsp;页&nbsp;&nbsp;</a></li>
-            <li><a href="project.jsp">&nbsp;&nbsp;项&nbsp;&nbsp;&nbsp;&nbsp;目&nbsp;&nbsp;</a></li>
+            <li><a href="<s:url action='showUser.action'>  
+            		</s:url>"
+            	>&nbsp;&nbsp;主&nbsp;&nbsp;&nbsp;&nbsp;页&nbsp;&nbsp;</a>
+            </li>
+            <li><a href="<s:url action='showAllProjs.action'>  
+            		</s:url>">&nbsp;&nbsp;项&nbsp;&nbsp;&nbsp;&nbsp;目&nbsp;&nbsp;</a>
+            </li> 
+            
             <li><a href="#">&nbsp;&nbsp;团&nbsp;&nbsp;&nbsp;&nbsp;队&nbsp;&nbsp;</a></li>
             
             <li> <a href="<s:url action='personalInfo.action'>  
@@ -53,10 +59,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <p>确认合作，保障双方权益</p>
                     </li>
                     </ul>
-                    </div>                   
+                    </div>      
+                                 
                     <h3 id="why">我的项目</h3>
                     <div id="gdt">
                     <ul id="maincon">
+                    
+                    	<s:iterator value="projs">  
+		                    	<li class="clearfix">
+		                    	<img src="images/image1.jpg" alt="image1" />
+		                
+			                    	<h2> <s:property value = "name"/> </h2>  
+			                    	<p> <s:property value = "context"/> </p>
+			                     
+			                    <a href="<s:url action='showMyProj.action'>
+			                    		<s:param name='projname' value='name' />  
+            							</s:url>" class="more">管理项目</a>&nbsp;&nbsp;&nbsp;
+                    			
+                    			<a href="<s:url action='delProj.action'>
+                    				<s:param name='projname' value='name' /> 
+                    				</s:url>" class="more">删除</a> 
+                    			</li> 
+	                    </s:iterator> 
+                    
                     <li class="clearfix">
                     <img src="images/image1.jpg" alt="image1" />
                     <h2>Services you could depend on</h2>
@@ -64,6 +89,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <a href="myproject.jsp" class="more">管理项目</a>&nbsp;&nbsp;&nbsp;
                     <a href="#" class="more">删除</a>
                     </li>
+                    
                     <li class="clearfix">
                     <img src="images/image2.jpg" alt="image1" />
                     <h2>Guranteed added value</h2>
@@ -71,6 +97,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <a href="myproject.jsp" class="more">管理项目</a>&nbsp;&nbsp;&nbsp;
                     <a href="#" class="more">删除</a>
                     </li>
+                    
                     <li class="clearfix">
                     <img src="images/image3.jpg" alt="image1" />
                     <h2>Support you can trust</h2>
@@ -78,6 +105,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <a href="myproject.jsp" class="more">管理项目</a>&nbsp;&nbsp;&nbsp;
                     <a href="#" class="more">删除</a>
                     </li>
+                    
                     <li class="clearfix last">
                     <img src="images/image4.jpg" alt="image1" />
                     <h2>Professional team at you help</h2>
@@ -85,6 +113,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <a href="myproject.jsp" class="more">管理项目</a>&nbsp;&nbsp;&nbsp;
                     <a href="#" class="more">删除</a>
                     </li>
+                    
                     </ul>
 					</div>
                 </div>
@@ -93,36 +122,75 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     	<h4>查询浏览</h4>
                     	<br />
   						
-                        <form action="#">    
+                        <s:form action="searchProjs.action" method="post">  
                             <p class="clearfix"><label for="xm">浏览项目</label>
-							<input name="password" id="username" type="text" value="" /></p>
+							<input name="projname" id="username" type="text" value="" /></p>
                             <p class="clearfix check">
                         <input name="submit" id="submit" type="submit" value="" /></p>
-                    	</form>
+                    	</s:form>
                     </fieldset>
-                    <h3 id="news">实时动态</h3>
+                    
+                    <h3 id="news">邀请信息</h3>
+                    <div id="gdt">
                     <ul>
+                    	<s:iterator value="invitations">  
+		                    	<li class="clearfix"> 
+			                    	<h2> <s:property value = "name"/> </h2>  
+			                    	<p> <s:property value = "context"/> </p>
+			                     
+			                    <%-- <a href="<s:url action='showMyTask.action'>
+			                    		<s:param name='projname' value='name' />
+			                    		<s:param name='context' value='context' />   
+            							</s:url>" class="more">查看任务</a>&nbsp;&nbsp;&nbsp; --%>
+                    			
+                    			<a href="<s:url action='getInvite.action'>
+                    				<s:param name='projname' value='name' /> 
+                    				</s:url>" class="more">接受邀请</a> 
+                    			</li> 
+	                    </s:iterator> 
+                    
                     	<li class="clearfix">
-                        <h4><a href="#">News title goes here</a></h4>
-                        <span>19 November, 2008</span>
+                        <h4><a>News title goes here</a></h4>
+                        <span>19 November, 20080</span>
                         <p>Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim niam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                        <a href="#" class="more">Read more</a>
+                        <a href="#" class="more">接受邀请</a>
                         </li>
                         <li class="clearfix">
-                        <h4><a href="#">News title goes here</a></h4>
+                        <h4><a>News title goes here</a></h4>
                         <span>19 November, 2008</span>
                         <p>Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim niam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                        <a href="#" class="more">Read more</a>
+                        <a href="#" class="more">接受邀请</a>
                         </li>
-                    </ul>                   
+                    </ul>
+                    </div>  
+                                      
                     <h3 id="test">我的任务</h3>
                     <div id="gdt">
                     <ul>
+                    
+                    	<s:iterator value="tasks">  
+		                    	<li class="clearfix"> 
+			                    	<h2> <s:property value = "name"/> </h2>  
+			                    	<p> <s:property value = "context"/> </p>
+			                     
+			                    <a href="<s:url action='showMyTask.action'>
+			                    		<s:param name='projname' value='name' />
+			                    		<s:param name='context' value='context' />   
+            							</s:url>" class="more">查看任务</a>&nbsp;&nbsp;&nbsp;
+                    			
+                    			<a href="<s:url action='delMyTask.action'>
+                    				<s:param name='projname' value='name' />
+                    				<s:param name='context' value='context' />  
+                    				</s:url>" class="more">退出任务</a> 
+                    			</li> 
+	                    </s:iterator> 
+                    
                     <li class="clearfix">
                     <p>Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim niam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                     <a href="mytask.jsp" class="more">查看任务</a>&nbsp;&nbsp;&nbsp;
                     <a href="#" class="more">退出任务</a>
                     </li>
+                    
                     </ul>
                     </div>
                 </div>

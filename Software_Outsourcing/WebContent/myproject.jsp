@@ -15,8 +15,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div id="header">
     	<a href="#"><img src="" title="Affiliate Promo logo" id=" " alt="" /></a>
         <ul id="navBar">
-            <li><a href="user.jsp">&nbsp;&nbsp;主&nbsp;&nbsp;&nbsp;&nbsp;页&nbsp;&nbsp;</a></li>
-            <li><a href="myproject.jsp">&nbsp;&nbsp;项&nbsp;&nbsp;&nbsp;&nbsp;目&nbsp;&nbsp;</a></li>
+            <li><a href="<s:url action='showUser.action'>  
+            		</s:url>"
+            	>&nbsp;&nbsp;主&nbsp;&nbsp;&nbsp;&nbsp;页&nbsp;&nbsp;</a>
+            </li>
+            <li><a href="<s:url action='showAllProjs.action'>  
+            		</s:url>">&nbsp;&nbsp;项&nbsp;&nbsp;&nbsp;&nbsp;目&nbsp;&nbsp;</a>
+            </li> 
+            
             <li><a href="#">&nbsp;&nbsp;团&nbsp;&nbsp;&nbsp;&nbsp;队&nbsp;&nbsp;</a></li>
            
             <li> <a href="<s:url action='personalInfo.action'>  
@@ -44,86 +50,73 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div id="inputForm">
 
 
-				<s:form theme="simple" action="#" id="Information">
+				<s:form theme="simple" action="updateProj.action" id="Information">
 					<s:hidden name="modify" value="true" />
 					<label class="Info" for="name">项目名称</label>
-					<s:textfield name="myproj.name"  />
+					<s:textfield name="proj.name"  readonly="true"/>
 					<s:fielderror>
-						<s:param>myproj.name</s:param>
+						<s:param>proj.name</s:param>
 					</s:fielderror>
 					<br />
 					<br />
 
 					<label class="Info" for="">招募人数</label>
-					<s:textfield name="myproj.num"  />
+					<s:textfield name="proj.lim"  />
 					<s:fielderror>
-						<s:param>myproj.num</s:param>
+						<s:param>proj.lim</s:param>
 					</s:fielderror>
 					<br />
 					<br />
 
 					<label class="Info" for="age">联系方式</label>
-					<s:textfield name="myproj.age"  />
+					<s:textfield name="proj.phone"  />
 					<s:fielderror>
-						<s:param>myproj.contact</s:param>
+						<s:param>proj.phone</s:param>
 					</s:fielderror>
 					<br />
 					<br />
 
 					<label class="Info" for="age">专业要求</label>
-					<s:textfield name="myproj.age"  />
+					<s:textfield name="proj.major"  />
 					<s:fielderror>
-						<s:param>myproj.age</s:param>
+						<s:param>proj.major</s:param>
 					</s:fielderror>
 					<br />
 					<br />
 
 					
 					<label class="Info" for="school">院校要求</label>
-					<s:textfield name="myproj.school"  />
+					<s:textfield name="proj.school"  />
 					<s:fielderror>
-						<s:param>myproj.school</s:param>
-					</s:fielderror>
-					<br />
-					<br />
-					
-					
-					<label class="Info" for="number">已参人数</label>
-					<s:textfield name="myproj.number"  readonly="true"/>
-					<s:fielderror>
-						<s:param>myproj.number</s:param>
+						<s:param>proj.school</s:param>
 					</s:fielderror>
 					<br />
 					<br />
 					
 					
 					<label class="Info" for="school">项目描述</label>
-					<s:textarea name="myproj.school" id="ttt" Columns="50" TextMode="MultiLine"  />
+					<s:textarea name="proj.context" id="ttt" Columns="50" TextMode="MultiLine"  />
 					<s:fielderror>
-						<s:param>myproj.des</s:param>
+						<s:param>proj.context</s:param>
 					</s:fielderror>
 					<br />
 					<br />
 					
 					
 					<label class="Info" for="school">人员要求</label>
-					<s:textarea name="myproj.school" id="ttt" Columns="50" TextMode="MultiLine"  />
+					<s:textarea name="proj.req" id="ttt" Columns="50" TextMode="MultiLine"  />
 					<s:fielderror>
-						<s:param>myproj.per</s:param>
+						<s:param>proj.req</s:param>
 					</s:fielderror>
 					<br />
 					<br />
-					
-					<label class="Info" for="ifm">参与信息</label>
-					<s:textarea name="myproj.ifm" id="ttt" Columns="50" TextMode="MultiLine"  readonly="true"/>
-					<s:fielderror>
-						<s:param>myproj.ifm</s:param>
-					</s:fielderror>
+					<a href="<s:url action='showJoiners'> 
+						<s:param name='projname' value='proj.name' /> 
+						</s:url>" class="more">查看已参与人员详细信息</a>
 					<br />
 					<br />
-					<a href="myboy.jsp" class="more">查看已参与人员详细信息</a>
-					<br />
-					<br />
+
+				
 					<s:submit value=" " id="submitss2" />
 
 

@@ -19,13 +19,85 @@
         <result name="error">/login_error.jsp</result>
     </action>
     
-    <action name="personalInfo" class="com.action.UserAction">
+    <action name="personalInfo" class="com.action.UserAction" method="ShowInfo">
     	<result name="success">/personalinformation.jsp</result>
     </action>
-    <!-- <action name="canlcelogin" class="com.action.CancelLoginAction">
-        <result name="success">/index.jsp</result>
-        <result name="error">/login_error.jsp</result>
-    </action>  -->
+    
+    <action name="updateInfo" class="com.action.UserAction" method="UpdateInfo">
+        <result name="success">/user.jsp</result> 
+    </action> 
+    
+    <action name="showUser" class="com.action.UserAction" method="ShowUser">
+    	<result name="success">/user.jsp</result>
+    </action>
+    
+    <action name="getInvite" class="com.action.UserAction" method="GetInvite">
+    	<result name="success">/user.jsp</result>
+    </action>
+    
+    <action name="joinerinfo" class="com.action.UserAction" method="ShowJoinerinfo">
+    	<result name="success">/joinerinfo.jsp</result>
+    </action>
+    
+    <action name="showProj" class="com.action.UserAction" method="ShowProj">
+    	<result name="success">/newproject.jsp</result>
+    </action>
+    
+    <action name="addProj" class="com.action.UserAction" method="AddProj">
+    	<result name="success">/user.jsp</result>
+    </action>
+    
+     <action name="contract" class="com.action.UserAction" method="Contract">
+    	<result name="success">/contract.jsp</result>
+    </action>
+    
+    <action name="showMyProj" class="com.action.UserAction" method="ShowMyProj">
+    	<result name="success">/myproject.jsp</result>
+    </action>
+    
+    <action name="showMyTask" class="com.action.UserAction" method="ShowMyTask">
+    	<result name="success">/mytask.jsp</result>
+    </action>
+    
+    <action name="delMyTask" class="com.action.UserAction" method="DelMyTask">
+    	<result name="success">/user.jsp</result>
+    </action>
+    
+    <action name="showAllProjs" class="com.action.UserAction" method="ShowAllProjs">
+    	<result name="success">/project.jsp</result>
+    </action>
+    
+    <action name="searchProjs" class="com.action.UserAction" method="SearchProjs">
+    	<result name="success">/project.jsp</result>
+    </action>
+    
+    <action name="invite" class="com.action.UserAction" method="Invite">
+    	<result name="success">/myboy.jsp</result>
+    </action>
+    
+    <action name="projMoreInfo" class="com.action.UserAction" method="ProjMoreInfo">
+    	<result name="success">/task.jsp</result>
+    </action>
+    
+    <action name="applyProj" class="com.action.UserAction" method="ApplyProj">
+    	<result name="success">/user.jsp</result>
+    </action>
+    
+    <action name="updateProj" class="com.action.UserAction" method="UpdateProj">
+    	<result name="success">/user.jsp</result>
+    </action>
+    
+    <action name="delProj" class="com.action.UserAction" method="DelMyProj">
+    	<result name="success">/user.jsp</result>
+    </action>
+    
+    <action name="showJoiners" class="com.action.UserAction" method="ShowJoiners">
+    	<result name="success">/myboy.jsp</result>
+    </action>
+    
+    <action name="removeJoiner" class="com.action.UserAction" method="RemoveJoiner">
+    	<result name="success">/myboy.jsp</result>
+    </action> 
     
     <action name="register" class="com.action.RegisterAction">
        <result name="success">/login.jsp</result>

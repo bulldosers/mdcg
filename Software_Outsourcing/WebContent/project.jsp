@@ -15,8 +15,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div id="header">
     	<a href="#"><img src="" title="Affiliate Promo logo" id=" " alt="" /></a>
         <ul id="navBar">
-            <li><a href="user.jsp">&nbsp;&nbsp;主&nbsp;&nbsp;&nbsp;&nbsp;页&nbsp;&nbsp;</a></li>
-            <li><a href="project.jsp">&nbsp;&nbsp;项&nbsp;&nbsp;&nbsp;&nbsp;目&nbsp;&nbsp;</a></li>
+            <li><a href="<s:url action='showUser.action'>  
+            		</s:url>"
+            	>&nbsp;&nbsp;主&nbsp;&nbsp;&nbsp;&nbsp;页&nbsp;&nbsp;</a>
+            </li>
+            <li><a href="<s:url action='showAllProjs.action'>  
+            		</s:url>">&nbsp;&nbsp;项&nbsp;&nbsp;&nbsp;&nbsp;目&nbsp;&nbsp;</a>
+            </li>
+            
             <li><a href="#">&nbsp;&nbsp;团&nbsp;&nbsp;&nbsp;&nbsp;队&nbsp;&nbsp;</a></li>
             
             <li> <a href="<s:url action='personalInfo.action'>  
@@ -40,7 +46,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <h3 id="why">全部项目</h3>
                     <div id="gdt">
                     <ul id="maincon">
-                    <li class="clearfix">
+                    
+                    <s:iterator value="projs">  
+		                    	<li class="clearfix">
+		                    	<img src="images/image1.jpg" alt="image1" />
+		                
+			                    	<h2> <s:property value = "name"/> </h2>  
+			                    	<p> <s:property value = "context"/> </p> 
+                    			
+                    			<a href="<s:url action='projMoreInfo.action'>
+                    				<s:param name='projname' value='name' />  
+                    				<s:param name='context' value='context' />  
+                    			</s:url>" class="more">申请任务</a>
+                    			
+                    			</li> 
+	                    </s:iterator> 
+                    
+                     <li class="clearfix">
                     <img src="images/image1.jpg" alt="image1" />
                     <h2>Services you could depend on</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
@@ -64,6 +86,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
                     <a href="task.jsp" class="more">申请任务</a>
                     </li>
+                    
                     </ul>
 					</div>
                 </div>
@@ -72,23 +95,54 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     	<h4>查询浏览</h4>
                     	<br />
   						
-                        <form action="#">    
+                        <s:form action="searchProjs.action" method="post">  
                             <p class="clearfix"><label for="xm">浏览项目</label>
-							<input name="password" id="username" type="text" value="" /></p>
+							<input name="projname" id="username" type="text" value="" /></p>
                             <p class="clearfix check">
                         <input name="submit" id="submit" type="submit" value="" /></p>
-                    	</form>
+                    	</s:form>
+                    	
                     </fieldset>
                     <h3 id="news">新的项目</h3>
                     <ul>
                     	<li class="clearfix">
                         <div id="aa">新建我的项目</div>
                         <p>定制我想要的项目，发布我的需求，线上招募我希望合作的开发团队</p>
-                        <a href="newproject.jsp" class="more">build now</a>
+                        <a href="<s:url action='showProj.action'>  </s:url>" class="more">build now</a>
                         </li>                        
                     </ul>
                    
+                    <h3 id="test">项目推荐</h3> 
+                    <div id="gdt">
+                    <ul>
                     
+                    	<s:iterator value="testprojs">  
+		                    	<li class="clearfix">  
+			                    	<h2> <s:property value = "name"/> </h2>  
+			                    	<p> <s:property value = "context"/> </p>  
+                    			<a href="<s:url action='projMoreInfo.action'>
+                    				<s:param name='projname' value='name' />  
+                    				<s:param name='context' value='context' />  
+                    			</s:url>" class="more">申请任务</a>
+                    			
+                    			</li> 
+	                    </s:iterator>
+                    
+                    	<li class="clearfix">
+                        <h4><a href="#">News title goes here</a></h4>
+                        <span>19 November, 2008</span>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim niam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <a href="#" class="more">申请任务</a>
+                        </li>
+                        <li class="clearfix">
+                        <h4><a href="#">News title goes here</a></h4>
+                        <span>19 November, 2008</span>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim niam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <a href="#" class="more">申请任务</a>
+                        </li>
+                    </ul>
+                    </div>  
+                                       
                 </div>
             </div>
         </div>
