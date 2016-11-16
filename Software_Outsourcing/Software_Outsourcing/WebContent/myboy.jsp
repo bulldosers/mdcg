@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*,com.Entity.Good" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -8,26 +8,34 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>USER CENTER</title>
+	<title>MYBOY</title>
 	<link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 <body>
 	<div id="header">
     	<a href="#"><img src="" title="" id=" " alt="" /></a>
         <ul id="navBar">
-            <li><a href="user.jsp">&nbsp;&nbsp;主&nbsp;&nbsp;&nbsp;&nbsp;页&nbsp;&nbsp;</a></li>
+            <li><a href="<s:url action='showUser.action'>  
+            		</s:url>"
+            	>&nbsp;&nbsp;主&nbsp;&nbsp;&nbsp;&nbsp;页&nbsp;&nbsp;</a>
+            </li>
             <li><a href="project.jsp">&nbsp;&nbsp;项&nbsp;&nbsp;&nbsp;&nbsp;目&nbsp;&nbsp;</a></li>
             <li><a href="#">&nbsp;&nbsp;团&nbsp;&nbsp;&nbsp;&nbsp;队&nbsp;&nbsp;</a></li>
-            <li><a href="personalinformation.jsp">&nbsp;&nbsp;个&nbsp;&nbsp;&nbsp;&nbsp;人&nbsp;&nbsp;</a></li>
+            
+            <li> <a href="<s:url action='personalInfo.action'>  
+            		</s:url>" > &nbsp;&nbsp;个&nbsp;&nbsp;&nbsp;&nbsp;人&nbsp;&nbsp; </a>
+            </li> 
+              
             <li><a href="test.jsp">&nbsp;&nbsp;评&nbsp;&nbsp;&nbsp;&nbsp;价&nbsp;&nbsp;</a></li>
             <li class="current"><a href="index.jsp">&nbsp;&nbsp;退&nbsp;&nbsp;&nbsp;&nbsp;出&nbsp;&nbsp;</a></li>   
             <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="image/head.jpg" onmouseover="this.src='image/head2.jpg'" onmouseout="this.src='image/head3.jpg'" style="margin-top:2px; width: 48px; height: 48px;"/></li>         
         </ul>
     </div>
     <div id="welcomeMessage">
-    	<h1>Welcome to USER CENTER</h1>
-    	<p><span>lalalalalalalala</span> is a leading virtual corporate business that will help you monetize your work to the most level you could reach.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adip, <span>Yourbusiness.com</span> will give you a new way to look at your business and lead it to all new horizons.</p>
+    	<h1>Welcome to PARTICIPANT PAGE</h1>
+    	<h1>Welcome to TASK　APPLYING PAGE</h1>
+    	<p><span>本页面为参与人员信息界面</span> </p>
+        <p>在这里，您可以查看所有参与您项目的人员信息。   <span>并</span>对他们进行管理</p>
     </div>
     <div id="wrapper">
     	<div id="secWrapper">
@@ -49,7 +57,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</table>
 
 			<div class="scrollable">
-				<s:form action="#">
+				<%-- <s:form action=""> --%>
 					<table>
 						<tbody>
 							<s:iterator value="books">
@@ -90,7 +98,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 
 			</div>
-		</s:form>
+		<%-- </s:form> --%>
 		</div>
                     
                 </div>

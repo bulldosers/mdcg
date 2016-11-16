@@ -1,18 +1,32 @@
 package com.Entity;
 
-public class User {
+import java.sql.SQLException;
+ 
+import java.util.ArrayList;
+
+import com.dao.UserDAO;
+
+public class User { 
 	private String username;
 	private String password;
 	private String address;
-	private String phone;
     private String check;
+    private Info info;
+    private ArrayList<String> pros;
     
+    public void Init() throws SQLException{
+    	info = UserDAO.getUserDAO().getUserByUsername(username); 
+    	if(info == null) 
+    	{
+    		info = new Info("","","","","","","");
+    		UserDAO.getUserDAO().addInfo(info,username);
+    	}
+    }
     public User(String name,String pwd){
     	username = name;
     	password = pwd;
     }
-    public User(){
-    	
+    public User(){ 
     }
 	public String getCheck() {
 		return check;
@@ -40,18 +54,23 @@ public class User {
 
 	public void setAddress(String address) {
 		this.address = address;
-	}
-
-	public String getPhone() {
-		return phone;
-	}
-
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
+	} 
 
 	public String getUsername() {
 		return username;
 	}
+	public Info getInfo() {
+		return info;
+	}
+	public void setInfo(Info info) {
+		this.info = info;
+	}
+	public ArrayList<String> getPros() {
+		return pros;
+	}
+	public void setPros(ArrayList<String> pros) {
+		this.pros = pros;
+	} 
 
 }
+

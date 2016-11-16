@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*,com.Entity.Good" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -8,33 +8,68 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>USER CENTER</title>
+	<title>PROJECT</title>
 	<link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 <body>
 	<div id="header">
     	<a href="#"><img src="" title="Affiliate Promo logo" id=" " alt="" /></a>
         <ul id="navBar">
-            <li><a href="user.jsp">&nbsp;&nbsp;主&nbsp;&nbsp;&nbsp;&nbsp;页&nbsp;&nbsp;</a></li>
-            <li><a href="project.jsp">&nbsp;&nbsp;项&nbsp;&nbsp;&nbsp;&nbsp;目&nbsp;&nbsp;</a></li>
+            <li><a href="<s:url action='showUser.action'>  
+            		</s:url>"
+            	>&nbsp;&nbsp;主&nbsp;&nbsp;&nbsp;&nbsp;页&nbsp;&nbsp;</a>
+            </li>
+            <li><a href="<s:url action='showAllProjs.action'>  
+            		</s:url>">&nbsp;&nbsp;项&nbsp;&nbsp;&nbsp;&nbsp;目&nbsp;&nbsp;</a>
+            </li>
+            
             <li><a href="#">&nbsp;&nbsp;团&nbsp;&nbsp;&nbsp;&nbsp;队&nbsp;&nbsp;</a></li>
-            <li><a href="personalinformation.jsp">&nbsp;&nbsp;个&nbsp;&nbsp;&nbsp;&nbsp;人&nbsp;&nbsp;</a></li>
+            
+            <li> <a href="<s:url action='personalInfo.action'>  
+            		</s:url>" > &nbsp;&nbsp;个&nbsp;&nbsp;&nbsp;&nbsp;人&nbsp;&nbsp; </a>
+            </li> 
+           
             <li><a href="test.jsp">&nbsp;&nbsp;评&nbsp;&nbsp;&nbsp;&nbsp;价&nbsp;&nbsp;</a></li>
             <li class="current"><a href="index.jsp">&nbsp;&nbsp;退&nbsp;&nbsp;&nbsp;&nbsp;出&nbsp;&nbsp;</a></li>   
             <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="image/head.jpg" onmouseover="this.src='image/head2.jpg'" onmouseout="this.src='image/head3.jpg'" style="margin-top:2px; width: 48px; height: 48px;"/></li>         
         </ul>
     </div>
     <div id="welcomeMessage">
-    	<h1>Welcome to USER CENTER</h1>
-    	<p><span>lalalalalalalala</span> is a leading virtual corporate business that will help you monetize your work to the most level you could reach.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adip, <span>Yourbusiness.com</span> will give you a new way to look at your business and lead it to all new horizons.</p>
+    	<h1>Welcome to PROJECT PAGE</h1>
+    	<p><span>本页面为项目界面</span>  包含所有人发布的项目，创建新的项目，以及查询模块。</p>
+        <p>在这里，您可以浏览所有项目。   <span>选择</span>您感兴趣的项目进行参与，创建您个人的项目。</p>
     </div>
     <div id="wrapper">
     	<div id="secWrapper">
         	<div id="container" class="clearfix">
             	<div id="mainCol" class="clearfix">
                     <h3 id="why">全部项目</h3>
+                    <div id="gdt">
                     <ul id="maincon">
+                    
+                    <s:iterator value="projs">  
+		                    	<li class="clearfix">
+		                    	<img src="images/image1.jpg" alt="image1" />
+		                
+			                    	<h2> <s:property value = "name"/> </h2>  
+			                    	<p> <s:property value = "context"/> </p>
+			                     
+			                    <%-- <a href="<s:url action='showMyProj.action'>
+			                    		<s:param name='projname' value='name' />  
+            							</s:url>" class="more">查看项目</a>&nbsp;&nbsp;&nbsp;
+                    			
+                    			<a href="<s:url action='delProj.action'>
+                    				<s:param name='projname' value='name' /> 
+                    				</s:url>" class="more">删除</a>  --%>
+                    			
+                    			<a href="<s:url action='projMoreInfo.action'>
+                    				<s:param name='projname' value='name' />  
+                    				<s:param name='context' value='context' />  
+                    			</s:url>" class="more">申请任务</a>
+                    			
+                    			</li> 
+	                    </s:iterator> 
+                    
                     <li class="clearfix">
                     <img src="images/image1.jpg" alt="image1" />
                     <h2>Services you could depend on</h2>
@@ -60,26 +95,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <a href="task.jsp" class="more">申请任务</a>
                     </li>
                     </ul>
-
+					</div>
                 </div>
                 <div id="secCol">
               		<fieldset id="login">
                     	<h4>查询浏览</h4>
                     	<br />
   						
-                        <form action="#">    
+                        <s:form action="searchProjs.action" method="post">  
                             <p class="clearfix"><label for="xm">浏览项目</label>
-							<input name="password" id="username" type="text" value="" /></p>
+							<input name="projname" id="username" type="text" value="" /></p>
                             <p class="clearfix check">
                         <input name="submit" id="submit" type="submit" value="" /></p>
-                    	</form>
+                    	</s:form>
+                    	
                     </fieldset>
                     <h3 id="news">新的项目</h3>
                     <ul>
                     	<li class="clearfix">
                         <div id="aa">新建我的项目</div>
                         <p>定制我想要的项目，发布我的需求，线上招募我希望合作的开发团队</p>
-                        <a href="newproject.jsp" class="more">build now</a>
+                        <a href="<s:url action='showProj.action'>  </s:url>" class="more">build now</a>
                         </li>                        
                     </ul>
                    

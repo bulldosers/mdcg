@@ -2,14 +2,17 @@ package com.action;
 
 import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts2.ServletActionContext;
 
+import com.Entity.Project;
 import com.Entity.User;
 import com.dao.LoginDAO;
+import com.dao.UserDAO;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -21,7 +24,8 @@ public class LoginAction extends ActionSupport {
 	private User user;
 	private String prePage;// 登录前页面
 	private LoginDAO loginDao = LoginDAO.getLoginDAO();
-
+	private ArrayList<Project> projs;
+	
 	@Override
 	public String execute() throws UnsupportedEncodingException, SQLException {
 		HttpServletRequest req = ServletActionContext.getRequest();
@@ -35,8 +39,7 @@ public class LoginAction extends ActionSupport {
 			return "error";
 		}
 		if (user.getUsername().length() > 0) { 
-			String username = new String(user.getUsername().getBytes(
-					"ISO-8859-1"), "UTF-8");
+			String username = new String(user.getUsername() );
 			System.out.println("2" + username); 
 			User loginUser = loginDao.getUserByName(username);
 			if (loginUser != null) {
@@ -44,7 +47,10 @@ public class LoginAction extends ActionSupport {
 					session.put("NowLogining", username);
 					prePage = (String) session.get("prePage");
 					session.remove("prePage");
-					if (null == prePage) {
+					if (null == prePage) { 
+						//user.Init();
+						projs = UserDAO.getUserDAO().getPros(user.getUsername());
+						ActionContext.getContext().getSession().put("username", user.getUsername() ); 
 						return SUCCESS;
 					} else {
 						return "aaa";
@@ -71,5 +77,13 @@ public class LoginAction extends ActionSupport {
 
 	public void setPrePage(String prePage) {
 		this.prePage = prePage;
+	}
+
+	public ArrayList<Project> getProjs() {
+		return projs;
+	}
+
+	public void setProjs(ArrayList<Project> projs) {
+		this.projs = projs;
 	}
 }

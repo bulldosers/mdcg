@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -79,7 +79,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <div class="login">
       <div class="form">
       <h1>用&nbsp;&nbsp;户&nbsp;&nbsp;登&nbsp;&nbsp;录</h1>
-      <s:form action="login.action" method="get">
+      <s:form action="login.action" method="post">
       <table>
       <tr><s:textfield name="user.username" label="用户名" value="username" cssStyle="width:200px;"></s:textfield><tr>
       <tr><s:password name="user.password"  label="密码 "  cssStyle="width:200px"></s:password><tr>
