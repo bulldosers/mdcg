@@ -112,7 +112,7 @@ public class UserDAO {
 	
 	public ArrayList<Project> SearchProsByName(String name) throws SQLException{
 		stmt = JdbcUtils.getStatement();
-		String sql = "SELECT * FROM " + PROJECT_TABLE_NAME + " where name='" + name +"'"; 
+		String sql = "SELECT * FROM " + PROJECT_TABLE_NAME + " where name like '%" + name +"%'"; 
 		System.out.println("搜索项目的sql语句:"+sql);
 		ResultSet res = stmt.executeQuery(sql); 
 		ArrayList<Project> pros = new ArrayList<Project>();
@@ -243,18 +243,11 @@ public class UserDAO {
 	
 	public ArrayList<Info> AllJoiners() throws SQLException{
 		stmt = JdbcUtils.getStatement(); 
-		String sql = "SELECT * FROM " + LINK_TABLE_NAME; 
+		String sql = "SELECT * FROM " + INFO_TABLE_NAME; 
 		System.out.println("搜索用户名称的sql语句:"+sql);
 		ResultSet res = stmt.executeQuery(sql); 
 		ArrayList<Info> joiners = new ArrayList<Info>();
-		ArrayList<String> names = new ArrayList<String>();
-		while (res.next()) {names.add(res.getString("username")); }
-		for(String username :names)
-		{
-			System.out.println("用户名称："+ username);
-			Info tmp = UserDAO.getUserDAO().getUserByUsername(username);
-			if(tmp!=null) joiners.add(tmp);  
-		}
+		while (res.next()) {joiners.add(ORM(res));} 
 		return joiners;
 	}
 	

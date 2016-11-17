@@ -4,6 +4,7 @@ import java.io.UnsupportedEncodingException;
  
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -34,10 +35,13 @@ public class UserAction  extends ActionSupport{
 	private String clientname;
 	private ArrayList<Info> testJoiners;
 	private ArrayList<Project> invitations;
+	private int RP;
 	
 	public UserAction() throws SQLException{ 
 		HttpServletRequest req = ServletActionContext.getRequest();
 		username = (String) req.getSession().getAttribute("username"); 
+		Random random = new Random(); 
+		RP = random.nextInt(12); 
 	}
 	
 	public String ShowInfo() throws UnsupportedEncodingException, SQLException{ 
@@ -47,31 +51,13 @@ public class UserAction  extends ActionSupport{
 	} 
 	
 	public String ShowJoinerinfo() throws SQLException, UnsupportedEncodingException{
+		projname = new String(projname.getBytes( "ISO-8859-1"), "UTF-8");
 		joinername = new String(joinername.getBytes( "ISO-8859-1"), "UTF-8");
+		System.out.println("showjoinerinfo: projname="+projname + ", joinnername=" + joinername);
 		user.setUsername(joinername);
 		user.Init();
 		return SUCCESS;
-	}
-	
-	public String Invite() throws SQLException, UnsupportedEncodingException {
-		joinername = new String(joinername.getBytes( "ISO-8859-1"), "UTF-8");
-		projname = new String(projname.getBytes( "ISO-8859-1"), "UTF-8");
-		System.out.println("joinername:" + joinername + ",projname:"+ projname);
-		
-		UserDAO.getUserDAO().Invite(projname,joinername );
-		
-		joiners = UserDAO.getUserDAO().AllJoinersByProjname(projname); 
-		testJoiners = new ArrayList<Info>(); 
-		ArrayList<Info> alljoiners = UserDAO.getUserDAO().AllJoiners();
-		int rp = 1;
-		for(Info info:alljoiners)
-		{
-			if(info==null) continue;
-			if(rp%3==0) testJoiners.add(info);
-			rp++;
-		} 
-		return SUCCESS;
-	}
+	} 
 	
 	public String UpdateInfo() throws SQLException{ 
 		UserDAO.getUserDAO().updateInfo(user.getInfo(),username );
@@ -133,10 +119,31 @@ public class UserAction  extends ActionSupport{
 		return ShowUser();
 	}
 	
+	public String Invite() throws SQLException, UnsupportedEncodingException {
+		System.out.println("已发出邀请"); 
+		joinername = new String(joinername.getBytes( "ISO-8859-1"), "UTF-8");
+		projname = new String(projname.getBytes( "ISO-8859-1"), "UTF-8");
+		System.out.println("joinername:" + joinername + ",projname:"+ projname);
+		
+		UserDAO.getUserDAO().Invite(projname,joinername );
+		
+		joiners = UserDAO.getUserDAO().AllJoinersByProjname(projname); 
+		testJoiners = new ArrayList<Info>(); 
+		ArrayList<Info> alljoiners = UserDAO.getUserDAO().AllJoiners();
+		int rp = RP;
+		for(Info info:alljoiners)
+		{
+			if(info==null) continue;
+			if(rp%3==0) testJoiners.add(info);
+			rp++;
+		} 
+		return SUCCESS;
+	}
+	
 	public String ShowAllProjs() throws SQLException{ 
 		projs = UserDAO.getUserDAO().getAllPros();
 		testprojs = new ArrayList<Project>();
-		int rp = 0; 
+		int rp = RP; 
 		for(Project tmp:projs)
 		{
 			if(rp%3 == 0) 
@@ -154,6 +161,18 @@ public class UserAction  extends ActionSupport{
 		System.out.println("项目名称："+projname);
 		projs = UserDAO.getUserDAO().SearchProsByName(projname);
 		System.out.println("跳转到搜索项目！");
+		testprojs = new ArrayList<Project>();
+		int rp = RP; 
+		for(Project tmp:projs)
+		{
+			if(rp%3 == 0) 
+			{
+				testprojs.add(tmp); 
+			}
+			rp++;
+			System.out.println(rp);
+		}
+		System.out.println("跳转到所有项目！");
 		return SUCCESS;
 	}
 	
@@ -197,17 +216,19 @@ public class UserAction  extends ActionSupport{
 	}
 	
 	public String ShowJoiners() throws SQLException, UnsupportedEncodingException{
+		//joinername = new String(joinername.getBytes( "ISO-8859-1"), "UTF-8"); 
 		projname = new String(projname.getBytes( "ISO-8859-1"), "UTF-8");
-		System.out.println("projname=" + projname + ", username=" + username);
+		//System.out.println("projname=" + projname + ", username=" + username + "joinername=" + joinername);
 		joiners = UserDAO.getUserDAO().AllJoinersByProjname(projname);  
 		testJoiners = new ArrayList<Info>();
 		ArrayList<Info> alljoiners = UserDAO.getUserDAO().AllJoiners();
-		int rp = 0;
+		int rp = RP;
 		for(Info info:alljoiners)
 		{
 			if(info==null) continue;
-			if(rp%3==0) testJoiners.add(info);
-			rp++;
+			//if(rp%3==0) 
+				testJoiners.add(info);
+			rp=rp+1;
 		}
 		return SUCCESS;
 	}

@@ -387,6 +387,15 @@ cursor: pointer;
 border: none;
 float: right;
 }
+#submitss3 {
+background: url(images/invite.png) no-repeat top left;
+margin-right:400px;
+width: 90px;
+height: 40px;
+cursor: pointer;
+border: none;
+float: right;
+}
 #contents{
 	height: 414px;
 	overflow-y: auto;

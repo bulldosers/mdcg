@@ -50,7 +50,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div id="inputForm">
 
 
-				<s:form theme="simple" action="updateInfo.action" id="Information">
+				<s:form theme="simple" action="#" id="Information"> 
+					
 					<s:hidden name="modify" value="true" />
 					<label class="Info" for="name">姓名</label> 
 					
@@ -107,16 +108,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<label class="Info" for="school">个人简介</label>
 					<s:textarea name="user.info.introduce" readonly="true" id="ttt" Columns="50" TextMode="MultiLine"/>
 					<s:fielderror>
-						<s:param>user.info.introduce</s:param>
+						<s:param>user.info.introduce</s:param> 
 					</s:fielderror>
 					<br />
 					<br />
+ 
+					<%-- <s:submit value=" " id="submitss3" /> --%>
 
+
+				</s:form> 
 				
-					<s:submit value=" " id="submitss" />
-
-
-				</s:form>
+				<a href="<s:url action='invite.action'>
+                    				<s:param name='joinername' value='joinername' /> 
+                    				<s:param name='projname' value='projname' />
+                </s:url>" id="submitss3">&nbsp;&nbsp;&nbsp;&nbsp;</a>
 
 			</div>
 		</div>
