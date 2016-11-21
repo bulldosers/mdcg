@@ -17,8 +17,8 @@ public class DeleteAction extends ActionSupport{
 	public int getPageNum() {
 		return pageNum;
 	}
-
-
+	
+	
 	public void setPageNum(int pageNum) {
 		this.pageNum = pageNum;
 	}
