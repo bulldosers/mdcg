@@ -10,35 +10,35 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
 
-public class LoginInterceptor extends AbstractInterceptor {  
-	  
-    private static final long serialVersionUID = 4956767125951165062L;  
-  
-    // À¹½ØAction´¦ÀíµÄÀ¹½Ø·½·¨  
-    public String intercept(ActionInvocation invocation) throws Exception {  
-  
-        // È¡µÃÇëÇóÏà¹ØµÄActionContextÊµÀý  
-        ActionContext ctx = invocation.getInvocationContext();  
-        Map<String, Object> session = ctx.getSession();   
-        // È¡³öÃûÎªuserµÄSessionÊôÐÔ  
-        String user = (String) session.get("userLogin");  
-  
-        // Èç¹ûÒÑ¾­ÓÐÓÃ»§µÇÂ¼£¬·ÅÐÐ  
-        if (user != null ) {  
-        	System.out.println("ÓÃ»§µÇÂ¼ÁË£¡");
-            return invocation.invoke();  
-        }  
-  
-        // »ñÈ¡HttpServletRequest¶ÔÏó  
-        HttpServletRequest req = ServletActionContext.getRequest();  
-  
-        // »ñÈ¡´ËÇëÇóµÄµØÖ·  
-        String path = req.getRequestURI();  
-        System.out.println("path:" + path);  
-        // ´æÈësession£¬·½±ãµ÷ÓÃ  
-        session.put("prePage", path);  
-    
-        // Ö±½Ó·µ»ØloginµÄÂß¼­ÊÓÍ¼  
-        return "begin";  
-    }  
-}  
+public class LoginInterceptor extends AbstractInterceptor {
+
+	private static final long serialVersionUID = 4956767125951165062L;
+
+	// ï¿½ï¿½ï¿½ï¿½Actionï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø·ï¿½ï¿½ï¿½
+	public String intercept(ActionInvocation invocation) throws Exception {
+
+		// È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Øµï¿½ActionContextÊµï¿½ï¿½
+		ActionContext ctx = invocation.getInvocationContext();
+		Map<String, Object> session = ctx.getSession();
+		// È¡ï¿½ï¿½ï¿½ï¿½Îªuserï¿½ï¿½Sessionï¿½ï¿½ï¿½ï¿½
+		String user = (String) session.get("userLogin");
+
+		// ï¿½ï¿½ï¿½ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		if (user != null) {
+			System.out.println("ï¿½Ã»ï¿½ï¿½ï¿½Â¼ï¿½Ë£ï¿½");
+			return invocation.invoke();
+		}
+
+		// ï¿½ï¿½È¡HttpServletRequestï¿½ï¿½ï¿½ï¿½
+		HttpServletRequest req = ServletActionContext.getRequest();
+
+		// ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Äµï¿½Ö·
+		String path = req.getRequestURI();
+		System.out.println("path:" + path);
+		// ï¿½ï¿½ï¿½ï¿½sessionï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		session.put("prePage", path);
+
+		// Ö±ï¿½Ó·ï¿½ï¿½ï¿½loginï¿½ï¿½ï¿½ß¼ï¿½ï¿½ï¿½Í¼
+		return "begin";
+	}
+}
