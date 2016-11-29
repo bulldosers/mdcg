@@ -20,6 +20,10 @@
 	.info{
 			float:right;
 	}
+	.footer{
+			position:fixed;
+			bottom:0;
+	}
 	</style>
 </head>
 <body>
@@ -58,5 +62,16 @@
 	<img src="image/head1.jpg">
 	<h3>Coding账户</h3>
 </div>
+<div class="footer">
+    	<ul>
+	        <li><a href="#">Home</a>&nbsp;&nbsp;-&nbsp;&nbsp;</li>
+  	        <li><a href="#">Terms and Conditions</a>&nbsp;&nbsp;-&nbsp;&nbsp;</li>
+			<li><a href="#">Privacy Policy</a>&nbsp;&nbsp;-&nbsp;&nbsp;</li>
+ 			<li><a href="#">Sitemap</a>&nbsp;&nbsp;-&nbsp;&nbsp;</li>
+  	        <li><a href="#">Support</a>&nbsp;&nbsp;-&nbsp;&nbsp;</li>
+			<li><a href="#">Contact Us</a></li>
+        </ul>
+        <p>Powered &nbsp;&nbsp; By &nbsp;&nbsp; Harbin &nbsp;&nbsp; HIT &nbsp;&nbsp; MDCG &nbsp;&nbsp; &copy; &nbsp;&nbsp; 2016-11-26</p>
+    </div>
 </body>
 </html>
