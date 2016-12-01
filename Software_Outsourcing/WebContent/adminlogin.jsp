@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+﻿<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -26,6 +26,46 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         background:url(image/back.jpg) no-repeat;
         height:700px;
         width:100%;
+     }
+     .form{
+        postion:relative;
+        margin-left:400px;
+        margin-top:200px;
+     }
+     .form{
+        postion:relative;
+        margin-left:400px;
+        margin-top:200px;
+     }
+     .form{
+        postion:relative;
+        margin-left:400px;
+        margin-top:200px;
+     }
+     .form{
+        postion:relative;
+        margin-left:400px;
+        margin-top:200px;
+     }
+     .form{
+        postion:relative;
+        margin-left:400px;
+        margin-top:200px;
+     }
+     .form{
+        postion:relative;
+        margin-left:400px;
+        margin-top:200px;
+     }
+     .form{
+        postion:relative;
+        margin-left:400px;
+        margin-top:200px;
+     }
+     .form{
+        postion:relative;
+        margin-left:400px;
+        margin-top:200px;
      }
      .form{
         postion:relative;

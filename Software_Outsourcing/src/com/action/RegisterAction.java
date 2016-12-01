@@ -23,7 +23,7 @@ public class RegisterAction extends ActionSupport {
 	public String execute() throws UnsupportedEncodingException, SQLException {
 		HttpServletRequest req = ServletActionContext.getRequest();
 		if (user.getUsername().length() > 0) {
-			String username = new String(user.getUsername() );
+			String username = new String(user.getUsername());
 			System.out.println("1" + username);
 			User registUser = loginDao.getUserByName(username);
 			if (registUser != null) {
