@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'delete.jsp' starting page</title>
+    <title>删除商品-Delete</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -39,9 +39,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    <div class="delete">
       <div class="form">
           <s:form action="delete.action" method="get">
-             <s:textfield name="pageNum" label="輸入刪除的商品所处页数"/>
-               <s:textfield name="pageIndex" label="輸入刪除的商品所处页数的位置"/>
-             <s:submit value="確認"/>
+             <s:textfield name="pageNum" label="输入删除商品所在页数"/>
+               <s:textfield name="pageIndex" label="输入刪除的商品所处页数的位置"/>
+             <s:submit value="确认"/>
           </s:form>
       </div>   
    </div>
