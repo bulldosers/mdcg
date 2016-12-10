@@ -1,6 +1,7 @@
 package com.Entity;
 
-public class Info {
+public class Info { 
+
 	private String name;
 	private String sex;
 	private String age;
@@ -77,16 +78,16 @@ public class Info {
 	public String getIntroduce() {
 		return introduce;
 	}
-
-	public void setIntroduce(String introduce) {
-		this.introduce = introduce;
-	}
-
-	public String getUsername() {
+public String getUsername() {
 		return username;
 	}
 
 	public void setUsername(String username) {
 		this.username = username;
 	}
+	public void setIntroduce(String introduce) {
+		this.introduce = introduce;
+	}
+
+	
 }
