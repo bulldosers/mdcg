@@ -1,11 +1,11 @@
 package com.Entity;
 
-public class Info { 
+public class Info { private String age;
+	private String major;
 
 	private String name;
 	private String sex;
-	private String age;
-	private String major;
+	
 	private String phone;
 	private String school;
 	private String introduce;
