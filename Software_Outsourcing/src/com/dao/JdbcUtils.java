@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+ 
 
 public class JdbcUtils {
 	private static Connection connection;
@@ -23,17 +24,18 @@ public class JdbcUtils {
 	}
 
 	public static Connection getConnection() throws SQLException {
-		if (connection == null || connection.isClosed()) {
+		if (connection == null || connection.isClosed()) { 
 			String url = "jdbc:mysql://localhost:3306/" + DATABASE_NAME;
 			try {
-				connection = DriverManager.getConnection(url, USERNAME, PASSWORD);
+				connection = DriverManager.getConnection(url, USERNAME,
+						PASSWORD);
 			} catch (Exception e) {
-				System.out.println("鏁版嵁搴撹繛鎺ュ紓甯�!");
+				System.out.println("数据库连接异常!");
 				e.printStackTrace();
 			}
 		}
 		return connection;
-	}
+	} 
 
 	public static Statement getStatement() throws SQLException {
 		if (statement == null)

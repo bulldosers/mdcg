@@ -10,97 +10,98 @@ import org.apache.struts2.ServletActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class UpImageAction extends ActionSupport {
-	/**
-	* 
-	*/
-	private static final long serialVersionUID = 1L;
-	// ï¿½ï¿½×°ï¿½Ï´ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-	private File image;
-	// ï¿½ï¿½×°ï¿½Ï´ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½
-	private String imageContentType;
-	// ï¿½ï¿½×°ï¿½Ï´ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-	private String imageFileName;
-	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-	private String savePath;
-
-	@Override
-	public String execute() {
-		FileOutputStream fos = null;
-		FileInputStream fis = null;
-		try {
-			// ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-			System.out.println(getSavePath());
-			fos = new FileOutputStream(getSavePath() + "\\" + getImageFileName());
-			// ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ï´ï¿½ï¿½ï¿½
-			fis = new FileInputStream(getImage());
-			byte[] buffer = new byte[1024];
-			int len = 0;
-			while ((len = fis.read(buffer)) > 0) {
-				fos.write(buffer, 0, len);
-			}
-		} catch (Exception e) {
-			System.out.println("ï¿½Ä¼ï¿½ï¿½Ï´ï¿½Ê§ï¿½ï¿½");
-			e.printStackTrace();
-		} finally {
-			close(fos, fis);
-		}
-		return SUCCESS;
-	}
-
-	/**
-	 * ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ï¿½Ä¼ï¿½ï¿½Ä±ï¿½ï¿½ï¿½Î»ï¿½ï¿½
+	 /**
 	 * 
-	 * @return
 	 */
-	public String getSavePath() throws Exception {
-		return ServletActionContext.getServletContext().getRealPath(savePath);
-	}
+	private static final long serialVersionUID = 1L;
+	 // ·â×°ÉÏ´«ÎÄ¼þÓòµÄÊôÐÔ
+    private File image;
+    // ·â×°ÉÏ´«ÎÄ¼þÀàÐÍµÄÊôÐÔ
+    private String imageContentType;
+    // ·â×°ÉÏ´«ÎÄ¼þÃûµÄÊôÐÔ
+    private String imageFileName;
+    // ½ÓÊÜÒÀÀµ×¢ÈëµÄÊôÐÔ
+    private String savePath;
 
-	public void setSavePath(String savePath) {
-		this.savePath = savePath;
-	}
+    @Override
+    public String execute() {
+        FileOutputStream fos = null;
+        FileInputStream fis = null;
+        try {
+            // ½¨Á¢ÎÄ¼þÊä³öÁ÷
+            System.out.println(getSavePath());
+            fos = new FileOutputStream(getSavePath() + "\\" + getImageFileName());
+            // ½¨Á¢ÎÄ¼þÉÏ´«Á÷
+            fis = new FileInputStream(getImage());
+            byte[] buffer = new byte[1024];
+            int len = 0;
+            while ((len = fis.read(buffer)) > 0) {
+                fos.write(buffer, 0, len);
+            }
+        } catch (Exception e) {
+            System.out.println("ÎÄ¼þÉÏ´«Ê§°Ü");
+            e.printStackTrace();
+        } finally {
+            close(fos, fis);
+        }
+        return SUCCESS;
+    }
 
-	public File getImage() {
-		return image;
-	}
+    /**
+     * ·µ»ØÉÏ´«ÎÄ¼þµÄ±£´æÎ»ÖÃ
+     * 
+     * @return
+     */
+    public String getSavePath() throws Exception{
+        return ServletActionContext.getServletContext().getRealPath(savePath); 
+    }
 
-	public void setImage(File image) {
-		this.image = image;
-	}
+    public void setSavePath(String savePath) {
+        this.savePath = savePath;
+    }
 
-	public String getImageContentType() {
-		return imageContentType;
-	}
+    public File getImage() {
+        return image;
+    }
 
-	public void setImageContentType(String imageContentType) {
-		this.imageContentType = imageContentType;
-	}
+    public void setImage(File image) {
+        this.image = image;
+    }
 
-	public String getImageFileName() {
-		return imageFileName;
-	}
+    public String getImageContentType() {
+        return imageContentType;
+    }
 
-	public void setImageFileName(String imageFileName) {
-		this.imageFileName = imageFileName;
-	}
+    public void setImageContentType(String imageContentType) {
+        this.imageContentType = imageContentType;
+    }
 
-	private void close(FileOutputStream fos, FileInputStream fis) {
-		if (fis != null) {
-			try {
-				fis.close();
-			} catch (IOException e) {
-				System.out.println("FileInputStreamï¿½Ø±ï¿½Ê§ï¿½ï¿½");
-				e.printStackTrace();
-			}
-		}
-		if (fos != null) {
-			try {
-				fos.close();
-			} catch (IOException e) {
-				System.out.println("FileOutputStreamï¿½Ø±ï¿½Ê§ï¿½ï¿½");
-				e.printStackTrace();
-			}
-		}
-	}
+    public String getImageFileName() {
+        return imageFileName;
+    }
 
-}
+    public void setImageFileName(String imageFileName) {
+        this.imageFileName = imageFileName;
+    }
+
+    private void close(FileOutputStream fos, FileInputStream fis) {
+        if (fis != null) {
+            try {
+                fis.close();
+            } catch (IOException e) {
+                System.out.println("FileInputStream¹Ø±ÕÊ§°Ü");
+                e.printStackTrace();
+            }
+        }
+        if (fos != null) {
+            try {
+                fos.close();
+            } catch (IOException e) {
+                System.out.println("FileOutputStream¹Ø±ÕÊ§°Ü");
+                e.printStackTrace();
+            }
+        }
+    }
+
+	    
+}  
