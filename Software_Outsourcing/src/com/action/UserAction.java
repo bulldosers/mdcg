@@ -40,6 +40,7 @@ public class UserAction  extends ActionSupport{
 	public UserAction() throws SQLException{ 
 		HttpServletRequest req = ServletActionContext.getRequest();
 		username = (String) req.getSession().getAttribute("username"); 
+		System.out.println("登录成功："+username);
 		Random random = new Random(); 
 		RP = random.nextInt(12); 
 	}

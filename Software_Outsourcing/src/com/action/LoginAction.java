@@ -25,6 +25,7 @@ public class LoginAction extends ActionSupport {
 	private String prePage;// 登录前页面
 	private LoginDAO loginDao = LoginDAO.getLoginDAO();
 	private ArrayList<Project> projs;
+	private ArrayList<Project> tasks;
 	
 	@Override
 	public String execute() throws UnsupportedEncodingException, SQLException {
@@ -33,14 +34,14 @@ public class LoginAction extends ActionSupport {
 
 		ActionContext ctx = ActionContext.getContext();
 		Map<String, Object> session = ctx.getSession();
-
-		if (!user.getCheck().equals(check)) {
+		
+		System.out.println("验证码："+check);
+		/*if (!user.getCheck().equals(check)) {
 			req.setAttribute("login_error", " ");
 			return "error";
-		}
+		}*/
 		if (user.getUsername().length() > 0) { 
-			String username = new String(user.getUsername() );
-			System.out.println("2" + username); 
+			String username = new String(user.getUsername() ); 
 			User loginUser = loginDao.getUserByName(username);
 			if (loginUser != null) {
 				if (loginUser.getPassword().equals(user.getPassword())) {
@@ -48,8 +49,10 @@ public class LoginAction extends ActionSupport {
 					prePage = (String) session.get("prePage");
 					session.remove("prePage");
 					if (null == prePage) { 
-						//user.Init();
-						projs = UserDAO.getUserDAO().getPros(user.getUsername());
+						user.Init();
+						setProjs(UserDAO.getUserDAO().getPros(user.getUsername()));
+						setTasks(UserDAO.getUserDAO().MyTasks(user.getUsername())); 
+						System.out.println(tasks.size() + "!_!");
 						ActionContext.getContext().getSession().put("username", user.getUsername() ); 
 						return SUCCESS;
 					} else {
@@ -85,5 +88,13 @@ public class LoginAction extends ActionSupport {
 
 	public void setProjs(ArrayList<Project> projs) {
 		this.projs = projs;
+	} 
+
+	public ArrayList<Project> getTasks() {
+		return tasks;
+	}
+
+	public void setTasks(ArrayList<Project> tasks) {
+		this.tasks = tasks;
 	}
 }

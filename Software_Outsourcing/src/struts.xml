@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
-<constant name="struts.i18n.encoding" value="UTF-8" />
 <constant name="struts.devMode" value="true" />
+<constant name="struts.i18n.encoding" value="UTF-8" />
+
   <package name="one" namespace="/" extends="struts-default">
       
+    <!-- 第一部分 登录和注册 -->
     <interceptors>  
           <interceptor name="LoginInterceptor" class="com.action.LoginInterceptor" />  
     </interceptors>  
@@ -45,13 +47,27 @@
           <interceptor-ref name="defaultStack" />
     </action>
     
+    <!-- 第二部分 管理个人首页 -->
+    <action name="updateInfo" class="com.action.UserAction" method="UpdateInfo">
+        <result name="success">/user.jsp</result> 
+    </action> 
+    
+    <action name="showMyTask" class="com.action.UserAction" method="ShowMyTask">
+    	<result name="success">/mytask.jsp</result>
+    </action>
+    
+    <action name="showMyProj" class="com.action.UserAction" method="ShowMyProj">
+    	<result name="success">/myproject.jsp</result>
+    </action>
+    
+    <action name="showJoiners" class="com.action.UserAction" method="ShowJoiners">
+    	<result name="success">/myjoiners.jsp</result>
+    </action>
     <!-- <action name="personalInfo" class="com.action.UserAction" method="ShowInfo">
     	<result name="success">/personalinformation.jsp</result>
     </action>
     
-    <action name="updateInfo" class="com.action.UserAction" method="UpdateInfo">
-        <result name="success">/user.jsp</result> 
-    </action> 
+   
     
     <action name="showUser" class="com.action.UserAction" method="ShowUser">
     	<result name="success">/user.jsp</result>
@@ -77,13 +93,9 @@
     	<result name="success">/contract.jsp</result>
     </action>
     
-    <action name="showMyProj" class="com.action.UserAction" method="ShowMyProj">
-    	<result name="success">/myproject.jsp</result>
-    </action>
     
-    <action name="showMyTask" class="com.action.UserAction" method="ShowMyTask">
-    	<result name="success">/mytask.jsp</result>
-    </action>
+    
+    
     
     <action name="delMyTask" class="com.action.UserAction" method="DelMyTask">
     	<result name="success">/user.jsp</result>
@@ -117,9 +129,7 @@
     	<result name="success">/user.jsp</result>
     </action> -->
     
-    <!-- <action name="showJoiners" class="com.action.UserAction" method="ShowJoiners">
-    	<result name="success">/myboy.jsp</result>
-    </action> -->
+    
     
     <!-- <action name="removeJoiner" class="com.action.UserAction" method="RemoveJoiner">
     	<result name="success">/myboy.jsp</result>

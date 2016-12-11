@@ -21,6 +21,7 @@ public class RegisterAction extends ActionSupport {
 
 	@Override
 	public String execute() throws UnsupportedEncodingException, SQLException {
+		System.out.println("用户注册！"); 
 		HttpServletRequest req = ServletActionContext.getRequest();
 		if (user.getUsername().length() > 0) {
 			String username = new String(user.getUsername() );
