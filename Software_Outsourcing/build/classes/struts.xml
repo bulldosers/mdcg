@@ -5,13 +5,13 @@
 <constant name="struts.devMode" value="true" />
   <package name="one" namespace="/" extends="struts-default">
       
-      <interceptors>  
-            <interceptor name="LoginInterceptor" class="com.action.LoginInterceptor" />  
-      </interceptors>  
+    <interceptors>  
+          <interceptor name="LoginInterceptor" class="com.action.LoginInterceptor" />  
+    </interceptors>  
       
-       <global-results>  
-           <result name="begin">/login.jsp</result> 
-       </global-results>  
+    <global-results>  
+         <result name="begin">/login.jsp</result> 
+    </global-results>  
         
     <action name="login" class="com.action.LoginAction">
          <result name="aaa" type="redirectAction">${prePage}</result>
@@ -19,7 +19,33 @@
         <result name="error">/login_error.jsp</result>
     </action>
     
-    <action name="personalInfo" class="com.action.UserAction" method="ShowInfo">
+    <action name="register" class="com.action.RegisterAction">
+       <result name="success">/login.jsp</result>
+       <result name="error">/register_error.jsp</result>
+    </action>
+    
+    <action name="rand" class="com.action.RandomPictureAction">  
+            <result type="stream">  
+                <param name="contentType">image/jpeg</param>  
+                <param name="inputName">inputStream</param>  
+            </result>  
+     </action>  
+       
+     <action name="upImage" class="com.action.UpImageAction">
+           <param name="savePath">/file</param>
+           <result name="success">/upResult.jsp</result>
+           <result name="input">/upImage.jsp</result>
+           <interceptor-ref name="fileUpload">
+                 <param name="maximumSize">500000</param>
+               <param name="allowedTypes">
+                   image/bmp,image/png,image/gif,image/jpeg,image/pjpeg,image/x-png
+             </param> 
+                     <param name="fileUpload.allowedExtensions">jpg</param>
+            </interceptor-ref>
+          <interceptor-ref name="defaultStack" />
+    </action>
+    
+    <!-- <action name="personalInfo" class="com.action.UserAction" method="ShowInfo">
     	<result name="success">/personalinformation.jsp</result>
     </action>
     
@@ -69,17 +95,17 @@
     
     <action name="searchProjs" class="com.action.UserAction" method="SearchProjs">
     	<result name="success">/project.jsp</result>
-    </action>
+    </action> -->
     
-    <action name="invite" class="com.action.UserAction" method="Invite">
+    <!-- <action name="invite" class="com.action.UserAction" method="Invite">
     	<result name="success">/myboy.jsp</result>
-    </action>
+    </action> -->
     
-    <action name="projMoreInfo" class="com.action.UserAction" method="ProjMoreInfo">
+    <!-- <action name="projMoreInfo" class="com.action.UserAction" method="ProjMoreInfo">
     	<result name="success">/task.jsp</result>
-    </action>
+    </action> -->
     
-    <action name="applyProj" class="com.action.UserAction" method="ApplyProj">
+    <!-- <action name="applyProj" class="com.action.UserAction" method="ApplyProj">
     	<result name="success">/user.jsp</result>
     </action>
     
@@ -89,43 +115,14 @@
     
     <action name="delProj" class="com.action.UserAction" method="DelMyProj">
     	<result name="success">/user.jsp</result>
-    </action>
+    </action> -->
     
-    <action name="showJoiners" class="com.action.UserAction" method="ShowJoiners">
+    <!-- <action name="showJoiners" class="com.action.UserAction" method="ShowJoiners">
     	<result name="success">/myboy.jsp</result>
-    </action>
+    </action> -->
     
-    <action name="removeJoiner" class="com.action.UserAction" method="RemoveJoiner">
+    <!-- <action name="removeJoiner" class="com.action.UserAction" method="RemoveJoiner">
     	<result name="success">/myboy.jsp</result>
-    </action> 
-    
-    <action name="register" class="com.action.RegisterAction">
-       <result name="success">/login.jsp</result>
-       <result name="error">/register_error.jsp</result>
-    </action>
-     
-    
-    <action name="rand" class="com.action.RandomPictureAction">  
-            <result type="stream">  
-                <param name="contentType">image/jpeg</param>  
-                <param name="inputName">inputStream</param>  
-            </result>  
-     </action>  
-       
-     
-     <action name="upImage" class="com.action.UpImageAction">
-           <param name="savePath">/file</param>
-           <result name="success">/upResult.jsp</result>
-           <result name="input">/upImage.jsp</result>
-           <interceptor-ref name="fileUpload">
-                 <param name="maximumSize">500000</param>
-               <param name="allowedTypes">
-                   image/bmp,image/png,image/gif,image/jpeg,image/pjpeg,image/x-png
-             </param> 
-                     <param name="fileUpload.allowedExtensions">jpg</param>
-            </interceptor-ref>
-          <interceptor-ref name="defaultStack" />
-    </action>
-
+    </action>  --> 
   </package>
 </struts>    
