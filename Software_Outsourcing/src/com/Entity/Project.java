@@ -1,8 +1,9 @@
 package com.Entity; 
 
 public class Project {
+	private static final int rp = 250;
 	private String name;
-	private int lim;
+	private String lim;
 	private String phone;
 	private String major;
 	private String school;
@@ -10,40 +11,56 @@ public class Project {
 	private String context;
 	private String req;
 	private String username;
+	private String process;
 	
 	
 	public void Init(){
 		this.name = "";
-		this.lim = 0;
+		this.lim = "";
 		this.phone = "";
 		this.major = "";
 		this.school = "";
-		this.num = 0;
-		this.context = ""; 
+		this.num = 0; 
+		this.context = "";  
 		this.req = "";
+		this.process = "";
 	}
-	public Project(String name,int lim,String phone,String major,String school,int num,String context,String req,String username){
+	public Project(String name,String lim,String phone,String major,String school,int num,String context,String req,String username,String process){
+		
 		this.name = name;
 		this.lim = lim;
 		this.phone = phone;
 		this.major = major;
 		this.school = school;
 		this.num = num;
+		
+		if(context.length() > rp) context = context.substring(0,rp) + "..."; 
 		this.context = context; 
+		
+		if(req.length() > rp) req = req.substring(0,rp) + "..."; 
 		this.req = req;
+		 
 		this.username = username;
+		if(process == null) process = "";
+		
+		if(process.length() > rp) process = process.substring(0,rp) + "..."; 
+		this.process = process;
+		
 	}
 	public Project(String n,String c){
-		name = n;
+		name = n; 
 		context = c;
+		if(context.length() > rp) context = context.substring(0,rp) + "..."; 
 	}
 	public Project(){
 		
 	}
 	public String getContext() {
+		if(context.length() > rp) context = context.substring(0,rp) + "..."; 
 		return context;
 	}
 	public void setContext(String context) {
+		if(context.length() > rp) context = context.substring(0,rp) + "..."; 
 		this.context = context;
 	}
 	public String getName() {
@@ -52,10 +69,10 @@ public class Project {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getLim() {
+	public String getLim() {
 		return lim;
 	}
-	public void setLim(int lim) {
+	public void setLim(String lim) {
 		this.lim = lim;
 	}
 	public String getPhone() {
@@ -86,6 +103,7 @@ public class Project {
 		return req;
 	}
 	public void setReq(String req) {
+		if(req.length() > rp) req = req.substring(0,rp) + "..."; 
 		this.req = req;
 	} 
 	public String getUsername() {
@@ -93,5 +111,13 @@ public class Project {
 	}
 	public void setUsername(String username) {
 		this.username = username;
+	}
+	public String getProcess() {
+		if(process==null) process="";
+		return process;
+	}
+	public void setProcess(String process) {
+		if(process==null) process="";
+		this.process = process;
 	}
 }

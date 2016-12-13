@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-    <title>Project Info & Apply</title>
+    <title>Project Info & Accept</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="csss/bootstrap.css" media="screen">
@@ -41,7 +41,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <li class="active"><a href="#top">Home</a></li>
                             <li><a href="<s:url action='ShowUser.action'> </s:url>">User Center</a></li>
                             <li><a href="<s:url action='showAllProjs.action'></s:url>">All Projects</a></li>
-                          
                             <li><a href="index.jsp">Exit</a></li>
 
                         </ul>
@@ -70,10 +69,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="container">
     <div class="row">
     <div class="col-md-12 text-center section-intro">
-        <h2 class="header-boxed  wow zoomIn" data-wow-iteration="1"><span>Information</span></h2>
-        <p class="lead wow fadeInUp" data-wow-delay="200ms">完善您需要发布项目的详细信息，请认真填写</p>
-    </div> 
-		<s:form theme="simple" action="delMyTask.action" id="Information">
+        <h2 class="header-boxed  wow zoomIn" data-wow-iteration="1"><span>Invitation</span></h2>
+        <p class="lead wow fadeInUp" data-wow-delay="200ms">以下是邀请您参与的任务的详细信息，请认真考虑后决定是否加入</p>
+    </div>
+		<s:form theme="simple" mathod="post" action="GetInvite" id="Information">
 					<s:hidden name="modify" value="true" />
 					<label class="Info" for="name">项目名称</label>
 					<s:textfield readonly="true" name="proj.name" style="width:600px; margin-left:20%;"/>
@@ -134,8 +133,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<br />
 					<br />
 
-					
-					<s:submit value="撤 销 任 务" class="btn btn-primary" style="background-color:red; font-size:13pt; margin-left:44%"/>
+				
+					<s:submit value="接 受 邀 请" class="btn btn-primary" style="font-size:13pt; margin-left:44%; background-color:orange;"/>
 					</s:form>
     
     </div>

@@ -41,7 +41,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <li class="active"><a href="#top">Home</a></li>
                             <li><a href="<s:url action='ShowUser.action'> </s:url>">User Center</a></li>
                             <li><a href="<s:url action='showAllProjs.action'></s:url>">All Projects</a></li>
-                          
                             <li><a href="index.jsp">Exit</a></li>
 
                         </ul>
@@ -72,8 +71,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="col-md-12 text-center section-intro">
         <h2 class="header-boxed  wow zoomIn" data-wow-iteration="1"><span>Information</span></h2>
         <p class="lead wow fadeInUp" data-wow-delay="200ms">完善您需要发布项目的详细信息，请认真填写</p>
-    </div> 
-		<s:form theme="simple" action="delMyTask.action" id="Information">
+    </div>
+		<s:form theme="simple" mathod="post" action="ApplyProj.action" id="Information">
 					<s:hidden name="modify" value="true" />
 					<label class="Info" for="name">项目名称</label>
 					<s:textfield readonly="true" name="proj.name" style="width:600px; margin-left:20%;"/>
@@ -134,8 +133,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<br />
 					<br />
 
-					
-					<s:submit value="撤 销 任 务" class="btn btn-primary" style="background-color:red; font-size:13pt; margin-left:44%"/>
+				
+					<s:submit value="申 请 加 入" class="btn btn-primary" style="font-size:13pt; margin-left:44%"/>
 					</s:form>
     
     </div>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
-<constant name="struts.devMode" value="true" />
+    
 <constant name="struts.i18n.encoding" value="UTF-8" />
-
+<constant name="struts.devMode" value="true" />
   <package name="one" namespace="/" extends="struts-default">
       
     <!-- 第一部分 登录和注册 -->
@@ -60,79 +60,98 @@
     	<result name="success">/myproject.jsp</result>
     </action>
     
-    <action name="showJoiners" class="com.action.UserAction" method="ShowJoiners">
-    	<result name="success">/myjoiners.jsp</result>
-    </action>
-    <!-- <action name="personalInfo" class="com.action.UserAction" method="ShowInfo">
-    	<result name="success">/personalinformation.jsp</result>
+    <action name="ShowAccept" class="com.action.UserAction" method="ShowAccept">
+    	<result name="success">/accept.jsp</result>
     </action>
     
+     <action name="showAllProjs" class="com.action.UserAction" method="ShowAllProjs">
+    	<result name="success">/project.jsp</result>
+    </action>
+    
+     <action name="SearchProjs" class="com.action.UserAction" method="SearchProjs">
+    	<result name="success">/project.jsp</result>
+    </action>
+    
+     <action name="ShowTasknew" class="com.action.UserAction" method="ShowTasknew">
+         <result name="success">/task1.jsp</result>
+     </action>
+     
+     <action name="ShowProj" class="com.action.UserAction" method="ShowProj">
+    	<result name="success">/task.jsp</result>
+    </action>
+    
+     <action name="ShowApply" class="com.action.UserAction" method="ShowApply">
+    	<result name="success">/apply.jsp</result>
+    </action>
+     
+     <action name="ApplyProj" class="com.action.UserAction" method="ApplyProj">
+    	<result name="success">/user.jsp</result>
+    </action>
+    
+     <action name="AddProj" class="com.action.UserAction" method="AddProj">
+    	<result name="success">/user.jsp</result>
+    </action>
+     
+    <action name="ShowUser" class="com.action.UserAction" method="index">
+    	<result name="success">/user.jsp</result>
+    </action>
+    
+    <action name="allmyproject" class="com.action.UserAction" method="allmyproject">
+    	<result name="success">/allmyproject.jsp</result>
+    </action>
    
-    
-    <action name="showUser" class="com.action.UserAction" method="ShowUser">
-    	<result name="success">/user.jsp</result>
+    <action name="allmytask" class="com.action.UserAction" method="allmytask">
+    	<result name="success">/allmytask.jsp</result>
     </action>
-    
-    <action name="getInvite" class="com.action.UserAction" method="GetInvite">
-    	<result name="success">/user.jsp</result>
-    </action>
-    
-    <action name="joinerinfo" class="com.action.UserAction" method="ShowJoinerinfo">
-    	<result name="success">/joinerinfo.jsp</result>
-    </action>
-    
-    <action name="showProj" class="com.action.UserAction" method="ShowProj">
-    	<result name="success">/newproject.jsp</result>
-    </action>
-    
-    <action name="addProj" class="com.action.UserAction" method="AddProj">
-    	<result name="success">/user.jsp</result>
-    </action>
-    
-     <action name="contract" class="com.action.UserAction" method="Contract">
-    	<result name="success">/contract.jsp</result>
-    </action>
-    
-    
-    
-    
     
     <action name="delMyTask" class="com.action.UserAction" method="DelMyTask">
     	<result name="success">/user.jsp</result>
     </action>
     
-    <action name="showAllProjs" class="com.action.UserAction" method="ShowAllProjs">
-    	<result name="success">/project.jsp</result>
+    <action name="UpdateProj" class="com.action.UserAction" method="UpdateProj">
+    	<result name="success">/myproject.jsp</result>
     </action>
     
-    <action name="searchProjs" class="com.action.UserAction" method="SearchProjs">
-    	<result name="success">/project.jsp</result>
-    </action> -->
+    <action name="DelMyProj" class="com.action.UserAction" method="DelMyProj">
+    	<result name="success">/user.jsp</result>
+    </action>
     
-    <!-- <action name="invite" class="com.action.UserAction" method="Invite">
+    <action name="Invite" class="com.action.UserAction" method="Invite">
+    	<result name="success">/myproject.jsp</result>
+    </action>
+    
+    <action name="RemoveJoiner" class="com.action.UserAction" method="RemoveJoiner">
+    	<result name="success">/myproject.jsp</result>
+    </action>  
+    
+    <action name="GetInvite" class="com.action.UserAction" method="GetInvite">
+    	<result name="success">/user.jsp</result>
+    </action> 
+    
+    <action name="evaluation" class="com.action.UserAction" method="evaluation">
+        <result name="success">/evaluation.jsp</result>
+    </action>
+    
+     <action name="addEvaluation" class="com.action.UserAction" method="addEvaluation">
+        <result name="success">/evaluation.jsp</result>
+    </action>
+    
+     <action name="contract" class="com.action.UserAction" method="Contract">
+        <result name="success">/contract.jsp</result>
+    </action> 
+    
+     <action name="ShowJoinerinfo" class="com.action.UserAction" method="ShowJoinerinfo">
     	<result name="success">/myboy.jsp</result>
-    </action> -->
+    </action> 
+    <!-- <action name="personalInfo" class="com.action.UserAction" method="ShowInfo">
+    	<result name="success">/personalinformation.jsp</result>
+    </action> 
     
-    <!-- <action name="projMoreInfo" class="com.action.UserAction" method="ProjMoreInfo">
+    
+     
+    <action name="projMoreInfo" class="com.action.UserAction" method="ProjMoreInfo">
     	<result name="success">/task.jsp</result>
-    </action> -->
-    
-    <!-- <action name="applyProj" class="com.action.UserAction" method="ApplyProj">
-    	<result name="success">/user.jsp</result>
-    </action>
-    
-    <action name="updateProj" class="com.action.UserAction" method="UpdateProj">
-    	<result name="success">/user.jsp</result>
-    </action>
-    
-    <action name="delProj" class="com.action.UserAction" method="DelMyProj">
-    	<result name="success">/user.jsp</result>
-    </action> -->
-    
-    
-    
-    <!-- <action name="removeJoiner" class="com.action.UserAction" method="RemoveJoiner">
-    	<result name="success">/myboy.jsp</result>
-    </action>  --> 
+    </action> 
+    --> 
   </package>
 </struts>    

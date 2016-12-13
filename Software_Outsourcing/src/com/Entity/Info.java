@@ -2,45 +2,53 @@ package com.Entity;
 
 public class Info
 {
+	private static final int rp = 250;
 	private String name;
-	private String sex;
-	private String age;
-	private String major;
+	private String email;
+	private String tc1;
+	private String tc2;
 	private String phone;
 	private String school;
 	private String introduce;
 	private String username;
+	private String wage;
+	private int num;
 	
-	public Info(String name,String sex,String age,String major,String phone,String school,String introduce,String username){
+	public Info(String name,String email,String tc1,String tc2,String phone,String school,String introduce,String username,String wage){
 		this.name = name;
-		this.sex = sex;
-		this.age = age;
-		this.major = major;
+		this.email = email;
+		this.tc1 = tc1;
+		this.tc2 = tc2;
 		this.phone = phone;
 		this.school = school;
+		
+		if(introduce.length() > rp) introduce = introduce.substring(0, rp) + "..."; 
 		this.introduce = introduce;
+		
 		this.username = username;
+		this.wage = wage;
+		this.setNum(0);
 	}
 	public Info(){
 		
 	}
-	public String getSex() {
-		return sex;
+	public String getEmail() {
+		return email;
 	}
-	public void setSex(String sex) {
-		this.sex = sex;
+	public void setEmail(String email) {
+		this.email = email;
 	}
-	public String getAge() {
-		return age;
+	public String getTc1() {
+		return tc1;
 	}
-	public void setAge(String age) {
-		this.age = age;
+	public void setTc1(String tc1) {
+		this.tc1 = tc1;
 	}
-	public String getMajor() {
-		return major;
+	public String getTc2() {
+		return tc2;
 	}
-	public void setMajor(String major) {
-		this.major = major;
+	public void setTc2(String tc2) {
+		this.tc2 = tc2;
 	}
 	public String getPhone() {
 		return phone;
@@ -61,9 +69,11 @@ public class Info
 		this.school = school;
 	}
 	public String getIntroduce() {
+		if(introduce.length() > rp) introduce = introduce.substring(0, rp) + "..."; 
 		return introduce;
 	}
 	public void setIntroduce(String introduce) {
+		if(introduce.length() > rp) introduce = introduce.substring(0, rp) + "..."; 
 		this.introduce = introduce;
 	}
 	public String getUsername() {
@@ -71,5 +81,17 @@ public class Info
 	}
 	public void setUsername(String username) {
 		this.username = username;
+	}
+	public String getWage() {
+		return wage;
+	}
+	public void setWage(String wage) {
+		this.wage = wage;
+	}
+	public int getNum() {
+		return num;
+	}
+	public void setNum(int num) {
+		this.num = num;
 	}
 }

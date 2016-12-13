@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-    <title>User Center</title>
+    <title>Choose Category</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="csss/bootstrap.css" media="screen">
@@ -24,7 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <section class="header-area-home" id="header-area-home">
         <div id="main-nav-container">
             <div  class="container">
-            <nav class="navbar navbar-eden" id="topnav">
+            <nav class="navbar navbar-eden" id="topnav"  style="background-color:#EEEEEE;">
                 <div class="container-fluid">
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
@@ -37,166 +37,60 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
                     <div class="collapse navbar-collapse" id="main-menu">
                         <ul class="nav navbar-nav">
+                        	<li><img src="imgs/optimus-logo.png" style="width:40px; heigth:40px;"/> </li>
                             <li class="active"><a href="#top">Home</a></li>
-                            <li><a href="user.jsp">User Center</a></li>
-                            <li><a href="project.jsp">All Project</a></li>
-                            <li><a href="developer.jsp">All Developers</a></li>
+                            <li><a href="<s:url action='ShowUser.action'> </s:url>">User Center</a></li>
+                            <li><a href="<s:url action='showAllProjs.action'></s:url>">All Projects</a></li>
                             <li><a href="index.jsp">Exit</a></li>
 
                         </ul>
 
+                        
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="#search"><i class="tn-search"></i></a></li>
+                            <s:form action="SearchProjs.action" method="post">  
+                            <p class="clearfix"><input style="heigth:10px" name="projname" id="username" type="text" value="" /> <button  name="submit" id="submit" type="submit" class="btn btn-primary"  data-animation="animated lightSpeedIn" data-delay="3s" data-duration="2s"><i  class="tn-search"></i> search</button></p>
+                            
+                    	</s:form>
                         </ul>
                     </div>
                 </div>
             </nav>
             </div>
         </div>
-        <div id="featured-slider-container">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div id="featured-slider" class="carousel slide" data-ride="carousel">
-                            <!-- Indicators -->
-                            <ol class="carousel-indicators">
-                                <li data-target="#featured-slider" data-slide-to="0" class="active"><img src='imgs/slider-1-t.jpg' alt='' class='featured-slide-thumb'  /></li>
-                                <li data-target="#featured-slider" data-slide-to="1" ><img src='imgs/slider-2-t.jpg' alt='' class='featured-slide-thumb'  /></li>
-                                <li data-target="#featured-slider" data-slide-to="2" ><img src='imgs/slider-3-t.jpg' alt='' class='featured-slide-thumb'  /></li>
-                            </ol>
-
-                            <!-- Wrapper for slides -->
-                            <div class="carousel-inner" role="listbox">
-                                <div class="item active" id="slide-2">
-                                    <img src='imgs/slider-1.jpg' alt='' class='featured-slide inv' data-animation = 'animated zoomIn' data-delay = '0.3s' />
-                                    <img src='imgs/slider-2.jpg' alt='' class='featured-slide featured-slide-1 inv' data-animation = 'animated zoomIn' data-delay = '0.7s' />
-                                    <div class="carousel-caption">
-                                        <span class="lead slide-cat inv"  data-animation="animated zoomIn"><a href="#" rel="category">Category</a></span>
-                                        <h2 class="slide-title inv"  data-animation="animated fadeInUp" data-duration="2s" data-delay="1s">选择您希望发布任务的类型 </h2>
-                                        <div class="slide-excerpt inv" data-animation="animated fadeInUp" data-duration="3s" data-delay="2s">
-                                         </div>
-                                        <div class="meta">
-                                            <a href="#pricing"><button class="btn btn-primary inv slide-btn btn-lg"  data-animation="animated fadeInUp" data-delay="3s" data-duration="2s">前 往 选 择 <i class="tn-arrow-right"></i></button></a>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="item" id="slide-3">
-                                    <img src='imgs/slider-2.jpg' alt='' class='featured-slide inv' data-animation = 'animated zoomIn' data-delay = '0.3s' />
-                                    <img src='imgs/slider-3.jpg' alt='' class='featured-slide featured-slide-1 inv' data-animation = 'animated zoomIn' data-delay = '0.7s' />
-                                    <div class="carousel-caption">
-                                        <span class="lead slide-cat inv"  data-animation="animated zoomIn"><a href="#" rel="category">About</a></span>
-                                        <h2 class="slide-title inv"  data-animation="animated fadeInUp" data-duration="2s" data-delay="1s">了解我们？来自哈工大的开发团队</h2>
-                                        <div class="slide-excerpt inv" data-animation="animated fadeInUp" data-duration="3s" data-delay="2s">
-    									</div>
-                                        <div class="meta">
-                                            <a href="http://today.hit.edu.cn/"><button class="btn btn-info inv slide-btn btn-lg"  data-animation="animated lightSpeedIn" data-delay="3s" data-duration="2s">M o r e <i class="tn-arrow-right"></i></button></a>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="item" id="slide-4">
-                                    <img src='imgs/slider-3.jpg' alt='' class='featured-slide inv' data-animation = 'animated zoomIn' data-delay = '0.3s' />
-                                    <img src='imgs/slider-1.jpg' alt='' class='featured-slide featured-slide-1 inv' data-animation = 'animated zoomIn' data-delay = '0.7s' />
-                                    <div class="carousel-caption">
-                                        <span class="lead slide-cat inv"  data-animation="animated zoomIn"><a href="#" rel="category">Category</a></span>
-                                        <h2 class="slide-title inv"  data-animation="animated fadeInUp" data-duration="2s" data-delay="1s">请选择您希望发布项目的类型</h2>
-                                        <div class="slide-excerpt inv" data-animation="animated fadeInUp" data-duration="3s" data-delay="2s">
-                                            
-                                        </div>
-                                        <div class="meta">
-                                            <a href="#pricing"><button class="btn btn-danger inv slide-btn btn-lg"  data-animation="animated fadeInUp" data-delay="3s" data-duration="2s">前 往 选 择<i class="tn-arrow-right"></i></button></a>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                            </div>
-
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
 
     </section>
-    <section class="featured-content-area" id="featured-content-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="panel panel-success panel-featured-content  text-center">
-                        <div class="panel-heading">Web Design</div>
-                        <div class="panel-body">
-                            <div class="diamond filled bg-success wow zoomIn" data-wow-delay="500ms">
-                            <i class="lineicon tn-paint-roller"></i>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="panel panel-info panel-featured-content  text-center">
-                        <div class="panel-heading">Web Development</div>
-                        <div class="panel-body">
-                            <div class="diamond filled bg-info wow zoomIn" data-wow-delay="900ms" >
-                                <i class="lineicon tn-world"></i>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="panel panel-primary panel-featured-content  text-center">
-                        <div class="panel-heading">Android Apps</div>
-                        <div class="panel-body">
-                            <div class="diamond filled  bg-primary wow zoomIn" data-wow-delay="1300ms" >
-                                <i class="lineicon tn-android"></i>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="panel panel-warning panel-featured-content  text-center">
-                        <div class="panel-heading">iOS Apps</div>
-                        <div class="panel-body">
-                            <div class="diamond filled bg-warning wow zoomIn" data-wow-delay="1700ms" >
-                                <i class="lineicon tn-apple"></i>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <br/>
+    <br/>
+    <br/>
 	<div class="copyrights"><a href="" title=""></a></div>
    
     <section class="pricing" id="pricing">
     <div class="container">
     <div class="row">
     <div class="col-md-12 text-center section-intro">
-        <h2 class="header-boxed  wow zoomIn" data-wow-iteration="1"><span>Choose</span></h2>
+        <h2 class="header-boxed  wow zoomIn" data-wow-iteration="1"><span>Category</span></h2>
         <p class="lead wow fadeInUp" data-wow-delay="200ms">选择您希望发布项目的类型</p>
     </div>
 
     <div class="col-md-12">
         <div class="col-md-6 pricing-table-block wow fadeInLeft">
             <div class="col-md-6 tb-left text-center">
-                <h5 class="text-light">Website</h5>
-                <h3>网页开发</h3>
-                <p><i class="tn-star  text-info"></i><i class="tn-star  text-info"></i><i class="tn-star"></i><i class="tn-star"></i><i class="tn-star"></i></p>
-                <p class="pac-info">For Professionals</p>
-                <button class="btn btn-default">Choose</button>
+                <h5 class="text-light">electronic commercial</h5>
+                <h3>电子商务</h3>
+                <p><i class="tn-star  text-info"></i><i class="tn-star  text-info"></i><i class="tn-star text-info"></i><i class="tn-star text-info"></i><i class="tn-star text-info"></i></p>
+                <p class="pac-info">For Marketing</p>
+                <a href="<s:url action='ShowTasknew.action'> </s:url>">
+                	<button class="btn btn-default">Choose</button>
+                </a>
             </div>
             <div class="col-md-6 tb-right">
                 <ul class="list-group">
-                    <li class="list-group-item"><i class="tn-server"></i> 1 Doamin</li>
-                    <li class="list-group-item"><i class="tn-download"></i> 5 GB Bandwidth</li>
-                    <li class="list-group-item"><i class="tn-harddrives"></i> 25 GB Space</li>
-                    <li class="list-group-item"><i class="tn-email"></i> 30 Email</li>
-                    <li class="list-group-item"><i class="tn-user"></i> 10 Users</li>
+                    <li class="list-group-item"><i class="tn-server"></i> 网络营销</li>
+                    <li class="list-group-item"><i class="tn-download"></i> 管理我的搜寻行销</li>
+                    <li class="list-group-item"><i class="tn-harddrives"></i> 客户关系管理相关帮助</li>
+                    <li class="list-group-item"><i class="tn-email"></i> 社交媒体营销</li>
+                    <li class="list-group-item"><i class="tn-user"></i> 增加网络关注度</li>
                 </ul>
             </div>
         </div>
@@ -204,53 +98,139 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <div class="col-md-6 tb-left text-center">
                 <h5 class="text-info">ios App</h5>
                 <h3>苹果端应用</h3>
-                <p><i class="tn-star text-info"></i><i class="tn-star text-info"></i><i class="tn-star text-info"></i><i class="tn-star"></i><i class="tn-star"></i></p>
-                <p class="pac-info">For Business</p>
+                <p><i class="tn-star text-info"></i><i class="tn-star text-info"></i><i class="tn-star text-info"></i><i class="tn-star text-info"></i><i class="tn-star text-info"></i></p>
+                <p class="pac-info">For Business or Lives</p>
+                <a href="<s:url action='ShowTasknew.action'> </s:url>">
                 <button class="btn btn-info">Choose</button>
+                </a>
             </div>
             <div class="col-md-6 tb-right">
                 <ul class="list-group">
-                    <li class="list-group-item"><i class="tn-server"></i> 1 Doamin</li>
-                    <li class="list-group-item"><i class="tn-download"></i> 5 GB Bandwidth</li>
-                    <li class="list-group-item"><i class="tn-harddrives"></i> 25 GB Space</li>
-                    <li class="list-group-item"><i class="tn-email"></i> 30 Email</li>
-                    <li class="list-group-item"><i class="tn-user"></i> 10 Users</li>
+                    <li class="list-group-item"><i class="tn-server"></i> ipad APP</li>
+                    <li class="list-group-item"><i class="tn-download"></i> iphone APP</li>
+                    <li class="list-group-item"><i class="tn-harddrives"></i> 客户关系管理相关帮助</li>
+                    <li class="list-group-item"><i class="tn-email"></i> 社交媒体营销</li>
+                    <li class="list-group-item"><i class="tn-user"></i> 增加网络关注度</li>
                 </ul>
             </div>
         </div>
         <div class="col-md-6 pricing-table-block wow fadeInUp" data-wow-delay="100ms">
             <div class="col-md-6 tb-left text-center">
-                <h5 class="text-warning">Developer</h5>
-                <h3>xxxxxx</h3>
+                <h5 class="text-warning">Website</h5>
+                <h3>网站开发</h3>
                 <p><i class="tn-star text-warning"></i><i class="tn-star text-warning"></i><i class="tn-star text-warning"></i><i class="tn-star text-warning"></i><i class="tn-star"></i></p>
                 <p class="pac-info">For Developers</p>
+                <a href="<s:url action='ShowTasknew.action'> </s:url>">
                 <button class="btn btn-warning">Choose</button>
+                </a>
             </div>
             <div class="col-md-6 tb-right">
                 <ul class="list-group">
-                    <li class="list-group-item"><i class="tn-server"></i> 1 Doamin</li>
-                    <li class="list-group-item"><i class="tn-download"></i> 5 GB Bandwidth</li>
-                    <li class="list-group-item"><i class="tn-harddrives"></i> 25 GB Space</li>
-                    <li class="list-group-item"><i class="tn-email"></i> 30 Email</li>
-                    <li class="list-group-item"><i class="tn-user"></i> 10 Users</li>
+                    <li class="list-group-item"><i class="tn-server"></i> 整体方案</li>
+                    <li class="list-group-item"><i class="tn-download"></i> UI设计</li>
+                    <li class="list-group-item"><i class="tn-harddrives"></i> 客户关系管理相关帮助</li>
+                    <li class="list-group-item"><i class="tn-email"></i> 社交媒体营销</li>
+                    <li class="list-group-item"><i class="tn-user"></i> 增加网络关注度</li>
                 </ul>
             </div>
         </div>
         <div class="col-md-6 pricing-table-block wow fadeInUp" data-wow-delay="200ms">
             <div class="col-md-6 tb-left text-center">
-                <h5 class="text-success">VIP</h5>
-                <h3>xxxxxx</h3>
-                <p><i class="tn-star text-success"></i><i class="tn-star  text-success"></i><i class="tn-star  text-success"></i><i class="tn-star  text-success"></i><i class="tn-star  text-success"></i></p>
+                <h5 class="text-success">WeChat Official Accounts </h5>
+                <h3>微信公众号</h3>
+                <p><i class="tn-star text-success"></i><i class="tn-star  text-success"></i><i class="tn-star  text-success"></i><i class="tn-star  text-success"></i><i class="tn-star"></i></p>
                 <p class="pac-info">For VIPs</p>
+                <a href="<s:url action='ShowTasknew.action'> </s:url>">
                 <button class="btn btn-primary">Choose</button>
+                </a>
             </div>
             <div class="col-md-6 tb-right">
                 <ul class="list-group">
-                    <li class="list-group-item"><i class="tn-server"></i> 1 Doamin</li>
-                    <li class="list-group-item"><i class="tn-download"></i> 5 GB Bandwidth</li>
-                    <li class="list-group-item"><i class="tn-harddrives"></i> 25 GB Space</li>
-                    <li class="list-group-item"><i class="tn-email"></i> 30 Email</li>
-                    <li class="list-group-item"><i class="tn-user"></i> 10 Users</li>
+                    <li class="list-group-item"><i class="tn-server"></i> 产品原型</li>
+                    <li class="list-group-item"><i class="tn-download"></i> 整体设计方案</li>
+                    <li class="list-group-item"><i class="tn-harddrives"></i> 推送内容设计</li>
+                    <li class="list-group-item"><i class="tn-email"></i> 社交媒体营销</li>
+                    <li class="list-group-item"><i class="tn-user"></i> 增加网络关注度</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-6 pricing-table-block wow fadeInLeft">
+            <div class="col-md-6 tb-left text-center">
+                <h5 class="text-light">HTML5</h5>
+                <h3>HTML5应用</h3>
+                <p><i class="tn-star  text-info"></i><i class="tn-star  text-info"></i><i class="tn-star text-info"></i><i class="tn-star"></i><i class="tn-star"></i></p>
+                <p class="pac-info">For Professional</p>
+                <a href="<s:url action='ShowTasknew.action'> </s:url>">
+                <button class="btn btn-default">Choose</button>
+                </a>
+            </div>
+            <div class="col-md-6 tb-right">
+                <ul class="list-group">
+                    <li class="list-group-item"><i class="tn-server"></i> UI设计</li>
+                    <li class="list-group-item"><i class="tn-download"></i> 产品原型</li>
+                    <li class="list-group-item"><i class="tn-harddrives"></i> 客户关系管理相关帮助</li>
+                    <li class="list-group-item"><i class="tn-email"></i> 社交媒体营销</li>
+                    <li class="list-group-item"><i class="tn-user"></i> 增加网络关注度</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-6 pricing-table-block wow fadeInRight">
+            <div class="col-md-6 tb-left text-center">
+                <h5 class="text-info">Finance</h5>
+                <h3>金融</h3>
+                <p><i class="tn-star text-info"></i><i class="tn-star text-info"></i><i class="tn-star text-info"></i><i class="tn-star text-info"></i><i class="tn-star text-info"></i></p>
+                <p class="pac-info">For Business or Lives</p>
+                <a href="<s:url action='ShowTasknew.action'> </s:url>">
+                <button class="btn btn-info">Choose</button>
+                </a>
+            </div>
+            <div class="col-md-6 tb-right">
+                <ul class="list-group">
+                    <li class="list-group-item"><i class="tn-server"></i> 理财产品</li>
+                    <li class="list-group-item"><i class="tn-download"></i> 期货股票模型</li>
+                    <li class="list-group-item"><i class="tn-harddrives"></i> 客户关系管理相关帮助</li>
+                    <li class="list-group-item"><i class="tn-email"></i> 数据分析</li>
+                    <li class="list-group-item"><i class="tn-user"></i> 增加网络关注度</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-6 pricing-table-block wow fadeInUp" data-wow-delay="100ms">
+            <div class="col-md-6 tb-left text-center">
+                <h5 class="text-warning">medical health</h5>
+                <h3>医疗健康</h3>
+                <p><i class="tn-star text-warning"></i><i class="tn-star text-warning"></i><i class="tn-star text-warning"></i><i class="tn-star text-warning"></i><i class="tn-star"></i></p>
+                <p class="pac-info">For Medical Institution</p>
+                <a href="<s:url action='ShowTasknew.action'> </s:url>">
+                <button class="btn btn-warning">Choose</button>
+                </a>
+            </div>
+            <div class="col-md-6 tb-right">
+                <ul class="list-group">
+                    <li class="list-group-item"><i class="tn-server"></i> 整体方案</li>
+                    <li class="list-group-item"><i class="tn-download"></i> UI设计</li>
+                    <li class="list-group-item"><i class="tn-harddrives"></i> 疾病管理相关帮助</li>
+                    <li class="list-group-item"><i class="tn-email"></i> 社交媒体营销</li>
+                    <li class="list-group-item"><i class="tn-user"></i> 增加网络关注度</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-6 pricing-table-block wow fadeInUp" data-wow-delay="200ms">
+            <div class="col-md-6 tb-left text-center">
+                <h5 class="text-success">Others </h5>
+                <h3>其他</h3>
+                <p><i class="tn-star text-success"></i><i class="tn-star  text-success"></i><i class="tn-star  text-success"></i><i class="tn-star"></i><i class="tn-star"></i></p>
+                <p class="pac-info">For others</p>
+                <a href="<s:url action='ShowTasknew.action'> </s:url>">
+                <button class="btn btn-primary">Choose</button>
+                </a>
+            </div>
+            <div class="col-md-6 tb-right">
+                <ul class="list-group">
+                    <li class="list-group-item"><i class="tn-server"></i> 产品原型</li>
+                    <li class="list-group-item"><i class="tn-download"></i> 整体设计方案</li>
+                    <li class="list-group-item"><i class="tn-harddrives"></i> UI设计</li>
+                    <li class="list-group-item"><i class="tn-email"></i> 社交媒体营销</li>
+                    <li class="list-group-item"><i class="tn-user"></i> 增加网络关注度</li>
                 </ul>
             </div>
         </div>

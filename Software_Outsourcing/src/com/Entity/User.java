@@ -18,7 +18,7 @@ public class User {
     	info = UserDAO.getUserDAO().getUserByUsername(username); 
     	if(info == null) 
     	{
-    		info = new Info("","","","","","","","");
+    		info = new Info("","","","","","","","","");
     		UserDAO.getUserDAO().addInfo(info,username);
     	}
     }
@@ -28,6 +28,7 @@ public class User {
     }
     public User(){ 
     }
+    
 	public String getCheck() {
 		return check;
 	}

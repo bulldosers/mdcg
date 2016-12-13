@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts2.ServletActionContext;
 
+import com.Entity.Evaluation;
 import com.Entity.Project;
 import com.Entity.User;
 import com.dao.LoginDAO;
@@ -26,7 +27,7 @@ public class LoginAction extends ActionSupport {
 	private LoginDAO loginDao = LoginDAO.getLoginDAO();
 	private ArrayList<Project> projs;
 	private ArrayList<Project> tasks;
-	
+	private ArrayList<Evaluation> evas;
 	@Override
 	public String execute() throws UnsupportedEncodingException, SQLException {
 		HttpServletRequest req = ServletActionContext.getRequest();
@@ -36,10 +37,10 @@ public class LoginAction extends ActionSupport {
 		Map<String, Object> session = ctx.getSession();
 		
 		System.out.println("验证码："+check);
-		/*if (!user.getCheck().equals(check)) {
+		if (!user.getCheck().equals(check)) {
 			req.setAttribute("login_error", " ");
 			return "error";
-		}*/
+		}
 		if (user.getUsername().length() > 0) { 
 			String username = new String(user.getUsername() ); 
 			User loginUser = loginDao.getUserByName(username);
@@ -50,8 +51,9 @@ public class LoginAction extends ActionSupport {
 					session.remove("prePage");
 					if (null == prePage) { 
 						user.Init();
-						setProjs(UserDAO.getUserDAO().getPros(user.getUsername()));
-						setTasks(UserDAO.getUserDAO().MyTasks(user.getUsername())); 
+						setProjs(UserDAO.getUserDAO().getPros(user.getUsername(),6));
+						setTasks(UserDAO.getUserDAO().MyTasks(user.getUsername(),6)); 
+						setEvas(UserDAO.getUserDAO().getEvaluation(3) );
 						System.out.println(tasks.size() + "!_!");
 						ActionContext.getContext().getSession().put("username", user.getUsername() ); 
 						return SUCCESS;
@@ -96,5 +98,13 @@ public class LoginAction extends ActionSupport {
 
 	public void setTasks(ArrayList<Project> tasks) {
 		this.tasks = tasks;
+	}
+
+	public ArrayList<Evaluation> getEvas() {
+		return evas;
+	}
+
+	public void setEvas(ArrayList<Evaluation> evas) {
+		this.evas = evas;
 	}
 }

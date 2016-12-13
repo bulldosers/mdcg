@@ -285,7 +285,7 @@
 			<div class="container">
 				<div class="row row-bottom-padded-md">
 					<div class="col-md-6 col-md-offset-3 text-center">
-						<h2 class="fh5co-lead animate-box">Our Survices</h2>
+						<h2 class="fh5co-lead animate-box">Our Services</h2>
 						<p class="fh5co-sub-lead animate-box">On this platform, you can Release tasks or receive them, any kind of software develop can be found here. </p>
 					</div>
 				</div>

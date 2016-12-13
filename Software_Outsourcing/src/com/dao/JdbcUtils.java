@@ -25,7 +25,9 @@ public class JdbcUtils {
 
 	public static Connection getConnection() throws SQLException {
 		if (connection == null || connection.isClosed()) { 
-			String url = "jdbc:mysql://localhost:3306/" + DATABASE_NAME;
+			String url = "jdbc:mysql://zogjxevmieoj.mysql.sae.sina.com.cn:10517/test?autoReconnect=true";
+			//String url = "jdbc:mysql://localhost:3306/" + DATABASE_NAME + "?autoReconnect=true";
+			
 			try {
 				connection = DriverManager.getConnection(url, USERNAME,
 						PASSWORD);

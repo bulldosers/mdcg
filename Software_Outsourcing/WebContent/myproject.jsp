@@ -4,64 +4,87 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>MYPROJECT</title>
-	<link rel="stylesheet" type="text/css" href="style.css" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Detailed Information of My Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="csss/bootstrap.css" media="screen">
+    <link rel="stylesheet" href="skins/eden.css" media="screen">
+    <link rel="stylesheet" href="styles.css" media="screen">
+    <link href="fonts/icons/icons.css" rel="stylesheet">
+    <link href="csss/animate.css" rel="stylesheet">
+
 </head>
-<body>
-	<div id="header">
-    	<a href="#"><img src="" title="Affiliate Promo logo" id=" " alt="" /></a>
-        <ul id="navBar">
-            <li><a href="<s:url action='showUser.action'>  
-            		</s:url>"
-            	>&nbsp;&nbsp;主&nbsp;&nbsp;&nbsp;&nbsp;页&nbsp;&nbsp;</a>
-            </li>
-            <li><a href="<s:url action='showAllProjs.action'>  
-            		</s:url>">&nbsp;&nbsp;项&nbsp;&nbsp;&nbsp;&nbsp;目&nbsp;&nbsp;</a>
-            </li> 
-            
-            <li><a href="#">&nbsp;&nbsp;团&nbsp;&nbsp;&nbsp;&nbsp;队&nbsp;&nbsp;</a></li>
-           
-            <li> <a href="<s:url action='personalInfo.action'>  
-            		</s:url>" > &nbsp;&nbsp;个&nbsp;&nbsp;&nbsp;&nbsp;人&nbsp;&nbsp; </a>
-            </li> 
-           
-            <li><a href="#">&nbsp;&nbsp;评&nbsp;&nbsp;&nbsp;&nbsp;价&nbsp;&nbsp;</a></li>
-            <li class="current"><a href="index.jsp">&nbsp;&nbsp;退&nbsp;&nbsp;&nbsp;&nbsp;出&nbsp;&nbsp;</a></li>   
-            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="image/head.jpg" onmouseover="this.src='image/head2.jpg'" onmouseout="this.src='image/head3.jpg'" style="margin-top:2px; width: 48px; height: 48px;"/></li>         
-        </ul>
+<body   data-spy="scroll" data-target="#topnav"  id="top">
+
+    <section class="header-area-home" id="header-area-home">
+        <div id="main-nav-container">
+            <div  class="container">
+            <nav class="navbar navbar-eden" id="topnav"  style="background-color:#EEEEEE;">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                data-target="#main-menu">
+                            <span class="sr-only"></span>
+                            <i class="tn-menu"></i>
+                        </button>
+                        <a class="navbar-brand" href="#"></a>
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="main-menu">
+                        <ul class="nav navbar-nav">
+                        	<li><img src="imgs/optimus-logo.png" style="width:40px; heigth:40px;"/> </li>
+                            <li class="active"><a href="#top">Home</a></li>
+                            <li><a href="<s:url action='ShowUser.action'> </s:url>">User Center</a></li>
+                            <li><a href="#client-reviews1">Team</a></li>
+                            <li><a href="#client-reviews2">Invite</a></li>
+                            <li><a href="index.jsp">Exit</a></li>
+
+                        </ul>
+
+                        
+                        <ul class="nav navbar-nav navbar-right">
+                            <s:form action="SearchProjs.action" method="post">  
+                            <p class="clearfix"><input style="heigth:10px" name="projname" id="username" type="text" value="" /> <button  name="submit" id="submit" type="submit" class="btn btn-primary"  data-animation="animated lightSpeedIn" data-delay="3s" data-duration="2s"><i  class="tn-search"></i> search</button></p>
+                            
+                    	</s:form>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            </div>
+        </div>
+        
+
+    </section>
+    <br/>
+    <br/>
+    <br/>
+	<div class="copyrights"><a href="" title=""></a></div>
+   
+    <section class="pricing" id="pricing">
+    <div class="container">
+    <div class="row">
+    <div class="col-md-12 text-center section-intro">
+        <h2 class="header-boxed  wow zoomIn" data-wow-iteration="1"><span>Information</span></h2>
+        <p class="lead wow fadeInUp" data-wow-delay="200ms">查看您发布项目的详细信息，并进行管理</p>
     </div>
-    <div id="welcomeMessage">
-    	<h1>Welcome to PROJECT MANAGE PAGE</h1>
-    	<p><span>本页面为项目管理界面</span> </p>
-        <p>在这里，您可以查看您已发布的任务，调整您的需求。   <span>并</span>查看已参与人员信息</p>
-    </div>
-    <div id="wrapper">
-    	<div id="secWrapper">
-        	<div id="container" class="clearfix">
-            		<div id="main">
-		<div id="content">
-
-
-			<h3 id="Inf"> </h3>
-			<div id="inputForm">
-
-
-				<s:form theme="simple" action="updateProj.action" id="Information">
+		<s:form theme="simple" mathod="post" action="UpdateProj" id="Information">
 					<s:hidden name="modify" value="true" />
 					<label class="Info" for="name">项目名称</label>
-					<s:textfield name="proj.name"  readonly="true"/>
+					<s:textfield readonly="true" name="proj.name" style="width:600px; margin-left:20%;"/>
 					<s:fielderror>
 						<s:param>proj.name</s:param>
 					</s:fielderror>
 					<br />
 					<br />
 
-					<label class="Info" for="">招募人数</label>
-					<s:textfield name="proj.lim"  />
+					<label class="Info" for="">项目预算</label>
+					<s:textfield name="proj.lim" style="width:600px; margin-left:20%;"/>
 					<s:fielderror>
 						<s:param>proj.lim</s:param>
 					</s:fielderror>
@@ -69,7 +92,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<br />
 
 					<label class="Info" for="age">联系方式</label>
-					<s:textfield name="proj.phone"  />
+					<s:textfield name="proj.phone" style="width:600px; margin-left:20%;"/>
 					<s:fielderror>
 						<s:param>proj.phone</s:param>
 					</s:fielderror>
@@ -77,7 +100,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<br />
 
 					<label class="Info" for="age">专业要求</label>
-					<s:textfield name="proj.major"  />
+					<s:textfield name="proj.major" style="width:600px; margin-left:20%;"/>
 					<s:fielderror>
 						<s:param>proj.major</s:param>
 					</s:fielderror>
@@ -86,7 +109,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 					
 					<label class="Info" for="school">院校要求</label>
-					<s:textfield name="proj.school"  />
+					<s:textfield name="proj.school" style="width:600px; margin-left:20%;"/>
 					<s:fielderror>
 						<s:param>proj.school</s:param>
 					</s:fielderror>
@@ -95,7 +118,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					
 					
 					<label class="Info" for="school">项目描述</label>
-					<s:textarea name="proj.context" id="ttt" Columns="50" TextMode="MultiLine"  />
+					<s:textarea name="proj.context" Columns="50" TextMode="MultiLine" style="width:600px; heigth:400px; margin-left:20%;"/>
 					<s:fielderror>
 						<s:param>proj.context</s:param>
 					</s:fielderror>
@@ -104,40 +127,145 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					
 					
 					<label class="Info" for="school">人员要求</label>
-					<s:textarea name="proj.req" id="ttt" Columns="50" TextMode="MultiLine"  />
+					<s:textarea name="proj.req" Columns="50" TextMode="MultiLine" style="width:600px; heigth:400px; margin-left:20%;"/>
 					<s:fielderror>
 						<s:param>proj.req</s:param>
 					</s:fielderror>
 					<br />
 					<br />
-					<a href="<s:url action='showJoiners'> 
-						<s:param name='projname' value='proj.name' /> 
-						</s:url>" class="more">查看已参与人员详细信息</a>
+					
+					<label class="Info" for="school">项目进度</label>
+					<s:textarea name="proj.process" Columns="50" TextMode="MultiLine" style="width:600px; heigth:400px; margin-left:20%;"/>
+					<s:fielderror>
+						<s:param>proj.process</s:param>
+					</s:fielderror>
 					<br />
 					<br />
 
 				
-					<s:submit value=" " id="submitss2" />
+					<s:submit value="E D I T" class="btn btn-primary" style="width:115px; font-size:13pt; margin-left:44%"/>
+					</s:form>
+					<br/>
+					<a href="<s:url action='DelMyProj.action'>
+                    				<s:param name='projname' value='proj.name' />  
+                    				</s:url>" class="more">
+    				<input style="width:115px; heigth:40px; background-color:red; margin-left:44%; text-size:80pt;" type="submit" value="项 目 完 结" class="btn btn-primary" name="submit">
+   					</a>
+    </div>
 
-
-				</s:form>
-
-			</div>
-		</div>
+    </div>
+    </section>
+    
+    <section class="client-reviews" id="client-reviews1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center section-intro">
+                    <h2 class="header-boxed wow zoomIn" data-wow-iteration="1"><span>已参与人员</span></h2>
+                    <p class="lead wow fadeInUp" data-wow-delay="200ms">查看参与您所发布项目的人员，选择生成合同或移除，构建您的开发团队</p>
+                </div>
+				
+				<s:iterator value="joiners"> 
+				<div class="col-md-4">
+                    <div class="speach">
+                        <s:property value = "introduce"/>
+                        <div class="media person">
+                            <div class="pull-left">
+                                <img src="imgs/user<s:property value = "num"/>.jpg" class="img-circle">
+                            </div>
+                            <div class="media-body">
+                                <b><s:property value = "name"/></b><br/>
+                                Web Developer
+                            </div>
+                        </div>
+                    </div>
+                    <a href="<s:url action='contract.action'>  
+                    				<s:param name='projname' value='proj.name' /> 
+                    				<s:param name='joinername' value='name' />  
+                    				</s:url>" class="more">
+                     <input style="width:100px; heigth:20px;" type="submit" value="生成合同" class="btn btn-primary" name="submit">
+                     </a>
+                     
+                     <a href="<s:url action='RemoveJoiner.action'>
+                    				<s:param name='projname' value='proj.name' />  
+                    				<s:param name='joinername' value='name' />  
+                    				</s:url>" class="more">
+                    		<input style="width:100px; heigth:20px;" type="submit" value="移除" class="btn btn-primary" name="submit">                  
+                	</a>
+                	
+                	<a href="<s:url action='ShowJoinerinfo.action'>
+                    				<s:param name='projname' value='proj.name' />  
+                    				<s:param name='joinername' value='username' /> 
+                    				</s:url>" class="more">
+                    		<input style="width:100px; heigth:20px;" type="submit" value="查看详细" class="btn btn-primary" name="submit">                  
+                	</a>
+                </div>
+                </s:iterator> 
             </div>
         </div>
+        
+        </section>
+        
+        <section class="client-reviews" id="client-reviews2">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center section-intro">
+                    <h2 class="header-boxed wow zoomIn" data-wow-iteration="1"><span>邀请开发者</span></h2>
+                    <p class="lead wow fadeInUp" data-wow-delay="200ms">邀请更多您欣赏的开发者进入您的团队</p>
+                </div>
+
+				<s:iterator value="testJoiners">   
+               		<div class="col-md-4">
+                    <div class="speach">
+	                    	<p> <s:property value = "introduce"/> </p>
+                        <div class="media person">
+                            <div class="pull-left">
+                                <img src="imgs/user<s:property value = "num"/>.jpg" class="img-circle">
+                            </div>
+                            <div class="media-body">
+                                <b><s:property value = "name"/></b><br/>
+                                Web Developer
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="<s:url action='Invite.action'>
+                    				<s:param name='joinername' value='username' /> 
+                    				<s:param name='projname' value='proj.name' />
+                    </s:url>" class="more">
+                    <input style="width:100px; heigth:20px;" type="submit" value="邀请" class="btn btn-primary" name="submit">
+              		</a>
+                </div>  	 	 
+	             </s:iterator> 
+            </div>
+        </div>
+        
+        </section>
+
+
+    <footer>
+    <div class="container">
+    <div class="row">
+    <div class="col-md-12 text-center section-intro">
+        <hr/>
+        <h2><img src="imgs/optimus-logo.png" /></h2>
+        <a href="#" target="_blank" title=""></a><a href="#" title="" target="_blank"></a><a href="#" class="btn-social btn-twitter btn-sm"><i class="tn-twitter"></i></a>
+        <a href="#" class="btn-social btn-facebook btn-sm"><i class="tn-facebook"></i></a>
+        <a href="#" class="btn-social btn-google-plus btn-sm"><i class="tn-google"></i></a>
+        <a href="#" class="btn-social btn-vimeo btn-sm"><i class="tn-vimeo"></i></a>
+        <a href="#" class="btn-social btn-dropbox btn-sm"><i class="tn-dropbox"></i></a>
     </div>
     </div>
-    <div id="footer">
-    	<ul>
-	        <li><a href="#">Home</a>&nbsp;&nbsp;-&nbsp;&nbsp;</li>
-  	        <li><a href="#">Terms and Conditions</a>&nbsp;&nbsp;-&nbsp;&nbsp;</li>
-			<li><a href="#">Privacy Policy</a>&nbsp;&nbsp;-&nbsp;&nbsp;</li>
- 			<li><a href="#">Sitemap</a>&nbsp;&nbsp;-&nbsp;&nbsp;</li>
-  	        <li><a href="#">Support</a>&nbsp;&nbsp;-&nbsp;&nbsp;</li>
-			<li><a href="#">Contact Us</a></li>
-        </ul>
-        <p>Powered &nbsp;&nbsp; By &nbsp;&nbsp; Harbin &nbsp;&nbsp; HIT &nbsp;&nbsp; MDCG &nbsp;&nbsp; &copy; &nbsp;&nbsp; 2016-10-26</p>
     </div>
+        <br/><br/>
+    </footer>
+
+
+
+<script src="jss/jquery-2.1.3.min.js"></script>
+<script src="jss/bootstrap.min.js"></script>
+<script src="jss/jquery.sticky.js"></script>
+<script src="jss/wow.min.js"></script>
+<script src="jss/site.js"></script>
+
 </body>
 </html>

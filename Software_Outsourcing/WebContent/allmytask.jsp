@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-    <title>Project Info & Apply</title>
+    <title>All My Projects</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="csss/bootstrap.css" media="screen">
@@ -40,8 +40,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         	<li><img src="imgs/optimus-logo.png" style="width:40px; heigth:40px;"/> </li>
                             <li class="active"><a href="#top">Home</a></li>
                             <li><a href="<s:url action='ShowUser.action'> </s:url>">User Center</a></li>
-                            <li><a href="<s:url action='showAllProjs.action'></s:url>">All Projects</a></li>
-                          
+                            <li><a href="#out-team">Invitation</a></li>
                             <li><a href="index.jsp">Exit</a></li>
 
                         </ul>
@@ -64,85 +63,93 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <br/>
     <br/>
     <br/>
+    
 	<div class="copyrights"><a href="" title=""></a></div>
    
-    <section class="pricing" id="pricing">
+
+    <section class="why-us" id="why-us">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center section-intro">
+                    <h2 class="header-boxed wow zoomIn" data-wow-iteration="1"><span>All My Task</span></h2>
+                    <p class="lead wow fadeInUp"  data-wow-delay="600ms">我已经接受的任务，等待完成</p>
+                </div>
+                <div class="col-md-12 highlight-boxes">
+                
+                <s:iterator value="tasks">  
+		            <div class="col-md-4 wow fadeInLeft" data-wow-delay="500ms">
+                    <div class="featured-content-box text-center">
+                        <i class="tn-heart ico-lg text-warning"></i>
+
+						<h3> <s:property value = "name"/> </h3>  
+			            <p> <s:property value = "context"/> </p>
+                        <a  href="<s:url action='showMyTask.action'>
+			              <s:param name='projname' value='name' />
+			              <s:param name='context' value='context' />   
+            			</s:url>"> <button class="btn btn-warning">Read More </button></a>
+                    </div>
+               		</div>   	 	 
+	             </s:iterator>  
+                </div> 
+
+
+            </div>
+            
+        </div>
+        </section>
+        
+        <section class="out-team" id="out-team" >
+
     <div class="container">
     <div class="row">
     <div class="col-md-12 text-center section-intro">
-        <h2 class="header-boxed  wow zoomIn" data-wow-iteration="1"><span>Information</span></h2>
-        <p class="lead wow fadeInUp" data-wow-delay="200ms">完善您需要发布项目的详细信息，请认真填写</p>
-    </div> 
-		<s:form theme="simple" action="delMyTask.action" id="Information">
-					<s:hidden name="modify" value="true" />
-					<label class="Info" for="name">项目名称</label>
-					<s:textfield readonly="true" name="proj.name" style="width:600px; margin-left:20%;"/>
-					<s:fielderror>
-						<s:param>proj.name</s:param>
-					</s:fielderror>
-					<br />
-					<br />
-
-					<label class="Info" for="">项目预算</label>
-					<s:textfield readonly="true" name="proj.lim" style="width:600px; margin-left:20%;"/>
-					<s:fielderror>
-						<s:param>proj.lim</s:param>
-					</s:fielderror>
-					<br />
-					<br />
-
-					<label class="Info" for="age">联系方式</label>
-					<s:textfield readonly="true" name="proj.phone" style="width:600px; margin-left:20%;"/>
-					<s:fielderror>
-						<s:param>proj.phone</s:param>
-					</s:fielderror>
-					<br />
-					<br />
-
-					<label class="Info" for="age">专业要求</label>
-					<s:textfield readonly="true" name="proj.major" style="width:600px; margin-left:20%;"/>
-					<s:fielderror>
-						<s:param>proj.major</s:param>
-					</s:fielderror>
-					<br />
-					<br />
-
-					
-					<label class="Info" for="school">院校要求</label>
-					<s:textfield readonly="true" name="proj.school" style="width:600px; margin-left:20%;"/>
-					<s:fielderror>
-						<s:param>proj.school</s:param>
-					</s:fielderror>
-					<br />
-					<br />
-					
-					
-					<label class="Info" for="school">项目描述</label>
-					<s:textarea readonly="true" name="proj.context" Columns="50" TextMode="MultiLine" style="width:600px; heigth:400px; margin-left:20%;"/>
-					<s:fielderror>
-						<s:param>proj.context</s:param>
-					</s:fielderror>
-					<br />
-					<br />
-					
-					
-					<label class="Info" for="school">人员要求</label>
-					<s:textarea readonly="true" name="proj.req" Columns="50" TextMode="MultiLine" style="width:600px; heigth:400px; margin-left:20%;"/>
-					<s:fielderror>
-						<s:param>proj.req</s:param>
-					</s:fielderror>
-					<br />
-					<br />
-
-					
-					<s:submit value="撤 销 任 务" class="btn btn-primary" style="background-color:red; font-size:13pt; margin-left:44%"/>
-					</s:form>
-    
+        <h2 class="header-boxed wow zoomIn" data-wow-iteration="1"><span>Project That Invites me</span></h2>
+        <p class="lead wow fadeInUp"  data-wow-delay="600ms">向我发出邀请的工程，点击More查看详情后可接受邀请</p>
     </div>
-
+         	<s:iterator value="invitations">  
+            <div class="col-sm-6 col-md-4">
+                <div class="panel panel-default panel-card">
+                    <div class="panel-heading">
+                        <img src="imgs/pppda<s:property value = "num"/>.jpg" />
+                        <a href="<s:url action='ShowAccept.action'>
+			                    		<s:param name='projname' value='name' />  
+            							</s:url>" ><button class="btn btn-primary btn-sm" role="button">More</button></a>
+                    </div>
+                    <div class="panel-figure">
+                        <img class="img-responsive img-circle" src="imgs/ppp<s:property value = "num"/>.png" />
+                    </div>
+                    <div class="panel-body text-center">
+                    	<h4 class="panel-header"> <s:property value = "name"/> </h4>  
+			            <small><s:property value = "context"/> </small> 
+                    </div>
+                    <div class="panel-thumbnails">
+                        <hr/>
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <div class="thumbnail">
+                                   
+                                </div>
+                            </div>
+                            <div class="col-xs-4">
+                                <div class="thumbnail">
+                                    
+                                </div>
+                            </div>
+                            <div class="col-xs-4">
+                                <div class="thumbnail">
+                                  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </s:iterator> 
+    </div>
     </div>
     </section>
-
+        
 
     <footer>
     <div class="container">

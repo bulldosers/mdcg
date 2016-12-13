@@ -37,19 +37,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
                     <div class="collapse navbar-collapse" id="main-menu">
                         <ul class="nav navbar-nav">
+                            <li><img src="imgs/optimus-logo.png" style="width:40px; heigth:40px;"/> </li>
                             <li class="active"><a href="#top">Home</a></li>
                             <li><a href="#curious">Myself</a></li>
-                            <li><a href="#why-us">Task</a></li>
-                            <li><a href="#out-team">Project</a></li>
-                            <li><a href="#client-reviews">Evaluation</a></li>
-                            <li><a href="project.jsp">All Projects</a></li>
-                            <li><a href="developer.jsp">All Developers</a></li>
+                            <li><a href="#why-us">My Task</a></li>
+                            <li><a href="#out-team">My Project</a></li>
+                            <li><a href="#client-reviews">Comment</a></li>
+                            <li><a href="<s:url action='showAllProjs.action'></s:url>">All Projects</a></li>
+                            <li><a href="<s:url action='ShowProj.action'></s:url>">New Project</a></li>
                             <li><a href="index.jsp">Exit</a></li>
 
                         </ul>
 
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="search.jsp"><i class="tn-search"></i></a></li>
+                            <li><a href="project.jsp"><i class="tn-search"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -63,7 +64,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         <div id="featured-slider" class="carousel slide" data-ride="carousel">
                             <!-- Indicators -->
                             <ol class="carousel-indicators">
-                                <li data-target="#featured-slider" data-slide-to="0" class="active"><img src='imgs/slider-1-t.jpg' alt='' class='featured-slide-thumb'  /></li>
+                                <li data-target="#featured-slider" data-slide-to="0" class="active"><img src='imgs/slider-1-t.jpg' alt='' class='featured-slide-thumb'/></li>
                                 <li data-target="#featured-slider" data-slide-to="1" ><img src='imgs/slider-2-t.jpg' alt='' class='featured-slide-thumb'  /></li>
                                 <li data-target="#featured-slider" data-slide-to="2" ><img src='imgs/slider-3-t.jpg' alt='' class='featured-slide-thumb'  /></li>
                             </ol>
@@ -76,10 +77,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                     <div class="carousel-caption">
                                         <span class="lead slide-cat inv"  data-animation="animated zoomIn"><a href="#" rel="category">Task</a></span>
                                         <h2 class="slide-title inv"  data-animation="animated fadeInUp" data-duration="2s" data-delay="1s">接受任务，寻找属于您的开发团队 </h2>
-                                        <div class="slide-excerpt inv" data-animation="animated fadeInUp" data-duration="3s" data-delay="2s">
+                                        <div class="slide-excerpt inv" data-animation="animated fadeInUp" data-duration="0s" data-delay="0s">
                                          </div>
                                         <div class="meta">
-                                            <a href="project.jsp"><button class="btn btn-primary inv slide-btn btn-lg"  data-animation="animated fadeInUp" data-delay="3s" data-duration="2s">前 往 接 受 任 务 <i class="tn-arrow-right"></i></button></a>
+                                            <a href="<s:url action='showAllProjs.action'></s:url>"><button style="background-color:orange" class="btn btn-primary inv slide-btn btn-lg"  data-animation="animated fadeInUp" data-delay="2s" data-duration="1s">前 往 接 受 任 务 <i class="tn-arrow-right"></i></button></a>
                                         </div>
 
                                     </div>
@@ -90,10 +91,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                     <div class="carousel-caption">
                                         <span class="lead slide-cat inv"  data-animation="animated zoomIn"><a href="#" rel="category">project</a></span>
                                         <h2 class="slide-title inv"  data-animation="animated fadeInUp" data-duration="2s" data-delay="1s">发布您的任务，线上招募开发人才</h2>
-                                        <div class="slide-excerpt inv" data-animation="animated fadeInUp" data-duration="3s" data-delay="2s">
+                                        <div class="slide-excerpt inv" data-animation="animated fadeInUp" data-duration="0s" data-delay="0s">
     									</div>
                                         <div class="meta">
-                                            <a href="task.jsp"><button class="btn btn-info inv slide-btn btn-lg"  data-animation="animated lightSpeedIn" data-delay="3s" data-duration="2s">前 往 发 布 任 务 <i class="tn-arrow-right"></i></button></a>
+                                            <a href="<s:url action='ShowProj.action'></s:url>"><button class="btn btn-info inv slide-btn btn-lg"  data-animation="animated lightSpeedIn" data-delay="2s" data-duration="1s">前 往 发 布 任 务 <i class="tn-arrow-right"></i></button></a>
                                         </div>
 
                                     </div>
@@ -104,11 +105,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                     <div class="carousel-caption">
                                         <span class="lead slide-cat inv"  data-animation="animated zoomIn"><a href="#" rel="category">About</a></span>
                                         <h2 class="slide-title inv"  data-animation="animated fadeInUp" data-duration="2s" data-delay="1s">了解我们？来自哈工大的开发团队</h2>
-                                        <div class="slide-excerpt inv" data-animation="animated fadeInUp" data-duration="3s" data-delay="2s">
+                                        <div class="slide-excerpt inv" data-animation="animated fadeInUp" data-duration="0s" data-delay="0s">
                                             
                                         </div>
                                         <div class="meta">
-                                            <a href="http://today.hit.edu.cn/"><button class="btn btn-danger inv slide-btn btn-lg"  data-animation="animated fadeInUp" data-delay="3s" data-duration="2s">M o r e<i class="tn-arrow-right"></i></button></a>
+                                            <a href="http://today.hit.edu.cn/"><button class="btn btn-danger inv slide-btn btn-lg"  data-animation="animated fadeInUp" data-delay="2s" data-duration="1s">M o r e<i class="tn-arrow-right"></i></button></a>
                                         </div>
 
                                     </div>
@@ -184,27 +185,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <p class="lead wow fadeInUp"  data-wow-delay="600ms">这里有您已经接受的任务，等待您的完成</p>
                 </div>
                 
-                <div class="col-md-12 highlight-boxes">
-                
-                <div class="col-md-4 wow fadeInLeft" data-wow-delay="500ms">
-                    <div class="featured-content-box text-center">
-                        <i class="tn-heart ico-lg text-warning"></i>
-
-                        <h3>Confucius Says </h3>
-                        <p>Never study for others what you would not capture for the freedom of it.</p>
-                        <a href="mytask.jsp"><button class="btn btn-warning">Read More </button></a>
-                    </div>
-                </div>
-                
-                <div class="col-md-4 wow fadeInLeft" data-wow-delay="500ms">
-                    <div class="featured-content-box text-center">
-                        <i class="tn-heart ico-lg text-warning"></i>
-
-                        <h3>Confucius Says </h3>
-                        <p>Never study for others what you would not capture for the freedom of it.</p>
-                        <a href="mytask.jsp"><button class="btn btn-warning">Read More </button></a>
-                    </div>
-                </div>
+                <div class="col-md-12 highlight-boxes"> 
                 
                 <s:iterator value="tasks">  
 		            <div class="col-md-4 wow fadeInLeft" data-wow-delay="500ms">
@@ -213,67 +194,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 						<h3> <s:property value = "name"/> </h3>  
 			            <p> <s:property value = "context"/> </p>
-                        <!-- <h3>Confucius Says </h3>
-                        <p>Never study for others what you would not capture for the freedom of it.</p> -->
                         <a  href="<s:url action='showMyTask.action'>
 			              <s:param name='projname' value='name' />
 			              <s:param name='context' value='context' />   
             			</s:url>"> <button class="btn btn-warning">Read More </button></a>
                     </div>
                		</div>   	 	 
-	             </s:iterator> 
-                <!-- <div class="col-md-4 wow zoomIn" data-wow-delay="100ms">
-                    <div class="featured-content-box text-center">
-                        <i class="tn-server ico-lg text-info"></i>
-
-                        <h3>Confucius Says </h3>
-                        <p>Never study for others what you would not capture for the freedom of it.</p>
-                        <a href="mytask.jsp"><button class="btn btn-warning">Read More </button></a>
-                    </div>
-                </div>
-                <div class="col-md-4 wow fadeInRight" data-wow-delay="500ms">
-                    <div class="featured-content-box text-center">
-                        <i class="tn-anchor ico-lg text-success"></i>
-
-                        <h3>Confucius Says </h3>
-                        <p>Never study for others what you would not capture for the freedom of it.</p>
-                        <a href="mytask.jsp"><button class="btn btn-primary">Read More </button></a>
-                    </div>
-                </div>
-                    <div class="col-md-4 wow fadeInUp">
-                        <div class="featured-content-box text-center">
-                            <i class="tn-agenda ico-lg text-danger"></i>
-
-                            <h3>Confucius Says </h3>
-                            <p>Never study for others what you would not capture for the freedom of it.</p>
-                            <a href="mytask.jsp"><button class="btn btn-danger">Read More </button></a>
-                        </div>
-                    </div>
-                    <div class="col-md-4 wow fadeInUp" data-wow-delay="300ms">
-                        <div class="featured-content-box text-center">
-                            <i class="tn-headphone ico-lg text-warning"></i>
-
-                            <h3>Confucius Says </h3>
-                            <p>Never study for others what you would not capture for the freedom of it.</p>
-                            <a href="mytask.jsp"><button class="btn btn-warning">Read More </button></a>
-                        </div>
-                    </div>
-                    <div class="col-md-4 wow fadeInUp" data-wow-delay="600ms">
-                        <div class="featured-content-box text-center">
-                            <i class="tn-dashboard ico-lg text-info"></i>
-
-                            <h3>Confucius Says </h3>
-                            <p>Never study for others what you would not capture for the freedom of it.</p>
-                            <a href="mytask.jsp"><button class="btn btn-warning">Read More </button></a>
-                        </div>
-                    </div>  -->
+	             </s:iterator>  
                 </div>
 
 
             </div>
-        </div>
+        </div> 
 
-    </section>
+	 		<br/>
+			<a  href="<s:url action='allmytask.action'></s:url>"><input style="width:300px; margin-left:39.3%;" type="submit" value="All My Tasks" class="btn btn-primary btn-lg btn-block" name="submit"></a>
+     </section>
 
     <section class="out-team" id="out-team" >
 
@@ -283,96 +219,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <h2 class="header-boxed wow zoomIn" data-wow-iteration="1"><span>Project</span></h2>
         <p class="lead wow fadeInUp"  data-wow-delay="600ms">这里有您发布的项目，等待您的管理</p>
     </div>
-         
-            <div class="col-sm-6 col-md-4">
-                <div class="panel panel-default panel-card">
-                    <div class="panel-heading">
-                        <img src="imgs/ppp2.jpg" />
-                        <a href="myproject.jsp"><button class="btn btn-primary btn-sm" role="button">More</button></a>
-                    </div>
-                    <div class="panel-figure">
-                        <img class="img-responsive img-circle" src="imgs/ppp1.png" />
-                    </div>
-                    <div class="panel-body text-center">
-                        <h4 class="panel-header"><a href="#">mdcg</a></h4>
-                        <small>A short description goes here.</small>
-                    </div>
-                    <div class="panel-thumbnails">
-                        <hr/>
-                        <div class="row">
-                            <div class="col-xs-4">
-                                <div class="thumbnail">
-                                    
-                                </div>
-                            </div>
-                            <div class="col-xs-4">
-                                <div class="thumbnail">
-                                    
-                                </div>
-                            </div>
-                            <div class="col-xs-4">
-                                <div class="thumbnail">
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-sm-6 col-md-4">
-                <div class="panel panel-default panel-card">
-                    <div class="panel-heading">
-                        <img src="imgs/ppp2.jpg" />
-                        <a href="myproject.jsp"><button class="btn btn-primary btn-sm" role="button">More</button></a>
-                    </div>
-                    <div class="panel-figure">
-                        <img class="img-responsive img-circle" src="imgs/ppp3.png" />
-                    </div>
-                    <div class="panel-body text-center">
-                        <h4 class="panel-header"><a href="#">mdcg</a></h4>
-                        <small>A short description goes here.</small>
-                    </div>
-                    <div class="panel-thumbnails">
-                        <hr/>
-                        <div class="row">
-                            <div class="col-xs-4">
-                                <div class="thumbnail">
-                                   
-                                </div>
-                            </div>
-                            <div class="col-xs-4">
-                                <div class="thumbnail">
-                                    
-                                </div>
-                            </div>
-                            <div class="col-xs-4">
-                                <div class="thumbnail">
-                                  
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
             <s:iterator value="projs">  
             <div class="col-sm-6 col-md-4">
                 <div class="panel panel-default panel-card">
                     <div class="panel-heading">
-                        <img src="imgs/ppp2.jpg" />
+                        <img src="imgs/pppda<s:property value = "num"/>.jpg" />
                         <a href="<s:url action='showMyProj.action'>
 			                    		<s:param name='projname' value='name' />  
             							</s:url>" ><button class="btn btn-primary btn-sm" role="button">More</button></a>
                     </div>
                     <div class="panel-figure">
-                        <img class="img-responsive img-circle" src="imgs/ppp3.png" />
+                        <img class="img-responsive img-circle" src="imgs/ppp<s:property value = "num"/>.png" />
                     </div>
                     <div class="panel-body text-center">
                     	<h4 class="panel-header"> <s:property value = "name"/> </h4>  
-			            <small><s:property value = "context"/> </small>
-                        <%-- <h4 class="panel-header"><a href="#">mdcg</a></h4>
-                        <small>A short description goes here.</small> --%>
+			            <small><s:property value = "context"/> </small> 
                     </div>
                     <div class="panel-thumbnails">
                         <hr/>
@@ -396,185 +257,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     </div>
                 </div>
             </div>
-            </s:iterator>
-            <%-- <div class="col-sm-6 col-md-4">
-                <div class="panel panel-default panel-card">
-                    <div class="panel-heading">
-                        <img src="imgs/ppp2.jpg" />
-                        <a href="myproject.jsp"><a href="project.jsp"><button class="btn btn-primary btn-sm" role="button">More</button></a></a>
-                    </div>
-                    <div class="panel-figure">
-                        <img class="img-responsive img-circle" src="imgs/ppp3.png" />
-                    </div>
-                    <div class="panel-body text-center">
-                        <h4 class="panel-header"><a href="#">mdcg</a></h4>
-                        <small>A short description goes here.</small>
-                    </div>
-                    <div class="panel-thumbnails">
-                        <hr/>
-                        <div class="row">
-                            <div class="col-xs-4">
-                                <div class="thumbnail">
-                                   
-                                </div>
-                            </div>
-                            <div class="col-xs-4">
-                                <div class="thumbnail">
-                                    
-                                </div>
-                            </div>
-                            <div class="col-xs-4">
-                                <div class="thumbnail">
-                                  
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4">
-                <div class="panel panel-default panel-card">
-                    <div class="panel-heading">
-                        <img src="imgs/ppp2.jpg" />
-                        <a href="myproject.jsp"><button class="btn btn-primary btn-sm" role="button">More</button></a>
-                    </div>
-                    <div class="panel-figure">
-                        <img class="img-responsive img-circle" src="imgs/ppp4.png" />
-                    </div>
-                    <div class="panel-body text-center">
-                        <h4 class="panel-header"><a href="#">mdcg</a></h4>
-                        <small>A short description goes here.</small>
-                    </div>
-                    <div class="panel-thumbnails">
-                        <hr/>
-                        <div class="row">
-                            <div class="col-xs-4">
-                                <div class="thumbnail">
-                                  
-                                </div>
-                            </div>
-                            <div class="col-xs-4">
-                                <div class="thumbnail">
-                                   
-                                </div>
-                            </div>
-                            <div class="col-xs-4">
-                                <div class="thumbnail">
-                                   
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4">
-                <div class="panel panel-default panel-card row2">
-                    <div class="panel-heading">
-                        <img src="imgs/ppp2.jpg" />
-                        <a href="myproject.jsp"><button class="btn btn-primary btn-sm" role="button">More</button></a>
-                    </div>
-                    <div class="panel-figure">
-                        <img class="img-responsive img-circle" src="imgs/ppp5.png" />
-                    </div>
-                    <div class="panel-body text-center">
-                        <h4 class="panel-header"><a href="#">mdcg</a></h4>
-                        <small>A short description goes here.</small>
-                    </div>
-                    <div class="panel-thumbnails">
-                        <hr/>
-                        <div class="row">
-                            <div class="col-xs-4">
-                                <div class="thumbnail">
-                                    
-                                </div>
-                            </div>
-                            <div class="col-xs-4">
-                                <div class="thumbnail">
-                                   
-                                </div>
-                            </div>
-                            <div class="col-xs-4">
-                                <div class="thumbnail">
-                                 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        <div class="col-sm-6 col-md-4">
-            <div class="panel panel-default panel-card row2">
-                <div class="panel-heading">
-                    <img src="imgs/ppp2.jpg" />
-                    <a href="myproject.jsp"><button class="btn btn-primary btn-sm" role="button">More</button></a>
-                </div>
-                <div class="panel-figure">
-                    <img class="img-responsive img-circle" src="imgs/ppp6.png" />
-                </div>
-                <div class="panel-body text-center">
-                    <h4 class="panel-header"><a href="#">mdcg</a></h4>
-                    <small>A short description goes here.</small>
-                </div>
-                <div class="panel-thumbnails">
-                    <hr/>
-                    <div class="row">
-                        <div class="col-xs-4">
-                            <div class="thumbnail">
-                              
-                            </div>
-                        </div>
-                        <div class="col-xs-4">
-                            <div class="thumbnail">
-                              
-                            </div>
-                        </div>
-                        <div class="col-xs-4">
-                            <div class="thumbnail">
-                             
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-	<div class="col-sm-6 col-md-4">
-        <div class="panel panel-default panel-card row2">
-            <div class="panel-heading">
-                <img src="imgs/ppp2.jpg" />
-                <a href="myproject.jsp"><button class="btn btn-primary btn-sm" role="button">More</button></a>
-            </div>
-            <div class="panel-figure">
-                <img class="img-responsive img-circle" src="imgs/ppp7.png" />
-            </div>
-            <div class="panel-body text-center">
-                <h4 class="panel-header"><a href="#">mdcg</a></h4>
-                <small>A short description goes here.</small>
-            </div>
-            <div class="panel-thumbnails">
-                <hr/>
-                <div class="row">
-                    <div class="col-xs-4">
-                        <div class="thumbnail">
-                           
-                        </div>
-                    </div>
-                    <div class="col-xs-4">
-                        <div class="thumbnail">
-                         
-                        </div>
-                    </div>
-                    <div class="col-xs-4">
-                        <div class="thumbnail">
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> --%>
-
+            </s:iterator> 
     </div>
     </div>
+    
+    <br/>
+    <a  href="<s:url action='allmyproject.action'></s:url>"><input style="width:300px; margin-left:39.3%;" type="submit" value="All My Projects" class="btn btn-primary btn-lg btn-block" name="submit"></a>
+   
     </section>
 
 
@@ -582,26 +271,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center section-intro">
-                    <h2 class="header-boxed wow zoomIn" data-wow-iteration="1"><span>Evaluation</span></h2>
+                    <h2 class="header-boxed wow zoomIn" data-wow-iteration="1"><span>Comment</span></h2>
                     <p class="lead wow fadeInUp" data-wow-delay="200ms">发表您对平台或者项目合作的评论，也许会出现在评论推送里面哦</p>
                 </div>
 
-                <div class="col-md-4">
+                
+				
+				<s:iterator value="evas">
+					<div class="col-md-4">
                     <div class="speach">
-                        Nunc vehicula mattis egestas. Nam augue sapien, auctor ut feugiat sit amet, commodo vitae tortor. Ut interdum metus a egestas finibus. Nam augue sapien, auctor ut feugiat sit amet.
-                        <div class="media person">
+                    	 <s:property value = "evaluation"/>   
+                         <div class="media person">
                             <div class="pull-left">
-                                <img src="imgs/user.jpg" class="img-circle">
+                                <img src="imgs/user<s:property value = "num"/>.jpg" class="img-circle">
                             </div>
                             <div class="media-body">
-                                <b>John Doe</b><br/>
+                                 <b><s:property value = "username"/> </b><br/>
                                 Web Developer
                             </div>
                         </div>
                     </div>                   
-                </div>
-
-                <div class="col-md-4">
+                	</div>
+				</s:iterator>
+				
+                <!-- <div class="col-md-4">
                     <div class="speach">
                         Nunc vehicula mattis egestas. Nam augue sapien, auctor ut feugiat sit amet, commodo vitae tortor. Ut interdum metus a egestas finibus. Nam augue sapien, auctor ut feugiat sit amet.
                         <div class="media person">
@@ -629,13 +322,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
 			
             </div>
         </div>
         <br/>
         <br/>
-        <a href="evaluation.jsp"><button class="btn btn-primary btn-sm" role="button" style="margin-left:46%;">Go to Evaluate</button></a>
+        <a href="<s:url action='evaluation.action'></s:url>"><input style="width:300px; margin-left:39.3%;" type="submit" value="Go to Evaluate" class="btn btn-primary btn-lg btn-block" name="submit"></a>
     </section>
 
     <section class="curious" id="curious">
@@ -645,53 +338,56 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <h2 class="header-boxed wow zoomIn" data-wow-iteration="1"><span>Myself</span></h2>
         <p class="lead">您的个人中心，请您认真填写信息，点击EDIT可对所有信息进行修改</p>
     </div>
-        <div class="col-md-6">
-            <div class="contact-form wow fadeInLeft">
-            
-            <form class="row" method="post" action="updateInfo">
+    <form class="row" method="post" action="updateInfo">
+    	<div class="col-md-6">
+           <div class="contact-form wow fadeInLeft">
             	<s:hidden name="modify" value="true" />
                 <div class="col-md-6">
                     <div class="form-group">
                     	<label>Your name here<i class="fa fa-asterisk"></i></label>
                     	<s:textfield name="user.info.name" class="form-control"/>
-						<s:fielderror> <s:param>user.info.name</s:param>  </s:fielderror> 
-                    <!-- <input type="text" name="name" class="form-control"> -->
+						<s:fielderror> <s:param>user.info.name</s:param>  </s:fielderror>  
                     </div>
-                </div>
+                </div> 
                 
                 <div class="col-md-6">
-                    <div class="form-group"><label>Your Phone<i class="fa fa-asterisk"></i></label> 
-                    <s:textfield name="user.info.phone" class="form-control"/>
-					<s:fielderror> <s:param>user.info.phone</s:param> </s:fielderror>
-                    <!-- <input type="email" name="email" class="form-control">-->
+                    <div class="form-group"><label>Your Expected Salary<i class="fa fa-asterisk"></i></label> 
+                    <s:textfield name="user.info.wage" class="form-control"/>
+					<s:fielderror> <s:param>user.info.wage</s:param> </s:fielderror> 
                  	</div> 
                 </div>
+                
                 <div class="col-md-12">
-                    <div class="form-group"><label>Your Message</label> 
+                    <div class="form-group"><label>Your School and Major<i class="fa fa-asterisk"></i></label> 
+                    <s:textfield name="user.info.school" class="form-control"/>
+					<s:fielderror> <s:param>user.info.school</s:param> </s:fielderror> 
+                 	</div> 
+                </div> 
+                
+                <div class="col-md-12">
+                    <div class="form-group"><label>Your Introduction</label> 
                     <s:textarea name="user.info.introduce" rows="6" class="form-control"/>
 					<s:fielderror>
 						<s:param>user.info.introduce</s:param>
-					</s:fielderror>
-                    <!-- <textarea name="message" rows="6" class="form-control"></textarea> -->
+					</s:fielderror> 
                     </div>
                     <div class="send_result"></div>
                 </div>
-                <div class="col-md-12"><a href="personalinformation.jsp"><input type="submit" value="E D I T" class="btn btn-primary btn-lg btn-block" name="submit"></a>
+                <div class="col-md-12"><input type="submit" value="E D I T" class="btn btn-primary btn-lg btn-block" name="submit">
+               	<div ><br/> </div>
                 </div>
-            </form>
-            
-            
             </div>
         </div>
+        
         <div class="col-md-3">
             <div class="featured-content-box text-center wow fadeInDown">
                 <div class="circle feature-icon">
                     <i class="tn-mobile"></i>
                 </div>
 
-                <h3>Phone</h3>
-                <p>+123-456-5678</p>
-
+                <h3>Phone</h3> 
+                <p><s:textfield name="user.info.phone"/></p>
+				<s:fielderror> <s:param>user.info.phone</s:param> </s:fielderror> 
             </div>
 
             <div class="featured-content-box text-center wow fadeInUp">
@@ -700,11 +396,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 </div>
 
                 <h3>Email</h3>
-                <p>xxxxxxx@xxx.com</p>
-
+                <p><s:textfield name="user.info.email"/></p>
+				<s:fielderror> <s:param>user.info.email</s:param> </s:fielderror> 
             </div>
 
         </div>
+        
         <div class="col-md-3">
             <div class="panel panel-default panel-subscribe panel-subscribe-narrow panel-subscribe-light panel-subscribe-vert wow fadeInRight">
                 <div class="panel-body">
@@ -716,30 +413,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         </div>
                     </div>
                 </div>
-                <div class="panel-footer">
-
-                    <form method="post" action="updateInfo">
+                <div class="panel-footer"> 
                         <div class="form-group">
-                        	<s:textfield name="user.info.major" class="form-control" />
-							<s:fielderror>
-								<s:param>user.info.major</s:param>
-							</s:fielderror>
-                            <!-- <input type="text" placeholder="特长1" id="fname1" class="form-control"> -->
-                        	
+                            <s:textfield name="user.info.tc1" placeholder="特长1" id="fname1" class="form-control"/>
+                        	<s:fielderror> <s:param>user.info.tc1</s:param> </s:fielderror> 
                         </div>
-                        <div class="input-group">
-                           <!--  <input type="text" placeholder="特长2" class="form-control"> -->
-                        <span class="input-group-btn">
-                        <a href="personalinformation.jsp"><button class="btn btn-inverse btn-block" type="submit">EDIT</button></a>
-                    	</span>
-                        </div>
-                    </form>
-
+                        <div class="form-group"> 
+                        	<s:textfield name="user.info.tc2" placeholder="特长2" id="fname1" class="form-control"/>
+                        	<s:fielderror> <s:param>user.info.tc2</s:param> </s:fielderror> 
+                        <span class="input-group-btn"> 
+                    </span>
+                        </div> 
                 </div>
             </div>
         </div>
-    </div>
-    </div>
+        
+        </form>
+    </div> 
+    </div> 
     </section>
 
     <footer>

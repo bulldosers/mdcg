@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-    <title>Project Info & Apply</title>
+    <title>Detailed Information of New Projects</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="csss/bootstrap.css" media="screen">
@@ -41,9 +41,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <li class="active"><a href="#top">Home</a></li>
                             <li><a href="<s:url action='ShowUser.action'> </s:url>">User Center</a></li>
                             <li><a href="<s:url action='showAllProjs.action'></s:url>">All Projects</a></li>
-                          
-                            <li><a href="index.jsp">Exit</a></li>
-
+                          	<li><a href="index.jsp">Exit</a></li>
                         </ul>
 
                         
@@ -72,11 +70,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="col-md-12 text-center section-intro">
         <h2 class="header-boxed  wow zoomIn" data-wow-iteration="1"><span>Information</span></h2>
         <p class="lead wow fadeInUp" data-wow-delay="200ms">完善您需要发布项目的详细信息，请认真填写</p>
-    </div> 
-		<s:form theme="simple" action="delMyTask.action" id="Information">
+    </div>
+		<s:form theme="simple" mathod="post" action="AddProj.action" id="Information">
 					<s:hidden name="modify" value="true" />
 					<label class="Info" for="name">项目名称</label>
-					<s:textfield readonly="true" name="proj.name" style="width:600px; margin-left:20%;"/>
+					<s:textfield name="proj.name" style="width:600px; margin-left:20%;"/>
 					<s:fielderror>
 						<s:param>proj.name</s:param>
 					</s:fielderror>
@@ -84,7 +82,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<br />
 
 					<label class="Info" for="">项目预算</label>
-					<s:textfield readonly="true" name="proj.lim" style="width:600px; margin-left:20%;"/>
+					<s:textfield name="proj.lim" style="width:600px; margin-left:20%;"/>
 					<s:fielderror>
 						<s:param>proj.lim</s:param>
 					</s:fielderror>
@@ -92,7 +90,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<br />
 
 					<label class="Info" for="age">联系方式</label>
-					<s:textfield readonly="true" name="proj.phone" style="width:600px; margin-left:20%;"/>
+					<s:textfield name="proj.phone" style="width:600px; margin-left:20%;"/>
 					<s:fielderror>
 						<s:param>proj.phone</s:param>
 					</s:fielderror>
@@ -100,7 +98,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<br />
 
 					<label class="Info" for="age">专业要求</label>
-					<s:textfield readonly="true" name="proj.major" style="width:600px; margin-left:20%;"/>
+					<s:textfield name="proj.major" style="width:600px; margin-left:20%;"/>
 					<s:fielderror>
 						<s:param>proj.major</s:param>
 					</s:fielderror>
@@ -109,7 +107,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 					
 					<label class="Info" for="school">院校要求</label>
-					<s:textfield readonly="true" name="proj.school" style="width:600px; margin-left:20%;"/>
+					<s:textfield name="proj.school" style="width:600px; margin-left:20%;"/>
 					<s:fielderror>
 						<s:param>proj.school</s:param>
 					</s:fielderror>
@@ -118,7 +116,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					
 					
 					<label class="Info" for="school">项目描述</label>
-					<s:textarea readonly="true" name="proj.context" Columns="50" TextMode="MultiLine" style="width:600px; heigth:400px; margin-left:20%;"/>
+					<s:textarea name="proj.context" Columns="50" TextMode="MultiLine" style="width:600px; heigth:400px; margin-left:20%;"/>
 					<s:fielderror>
 						<s:param>proj.context</s:param>
 					</s:fielderror>
@@ -127,15 +125,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					
 					
 					<label class="Info" for="school">人员要求</label>
-					<s:textarea readonly="true" name="proj.req" Columns="50" TextMode="MultiLine" style="width:600px; heigth:400px; margin-left:20%;"/>
+					<s:textarea name="proj.req" Columns="50" TextMode="MultiLine" style="width:600px; heigth:400px; margin-left:20%;"/>
 					<s:fielderror>
 						<s:param>proj.req</s:param>
 					</s:fielderror>
 					<br />
 					<br />
 
-					
-					<s:submit value="撤 销 任 务" class="btn btn-primary" style="background-color:red; font-size:13pt; margin-left:44%"/>
+				
+					<s:submit value="发 布 项 目" class="btn btn-primary" style="font-size:13pt; margin-left:44%"/>
 					</s:form>
     
     </div>
